@@ -1,0 +1,18 @@
+{% extends "default.html" %}
+
+{% block title %}Активация учетной записи{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="span12">
+			<h1>Активация учетной записи</h1>
+		</div>
+	</div>
+	
+	{% if account %}
+		<p>Учетная запись партнера "{{ account }}" активирована!</p>
+		<p>Пользователю "{{ account }}" отправлено уведомление.</p>
+	{% else %}
+		<p>Ошибка активации учетной записи! Обратитесь к администратору.</p>
+	{% endif %}
+{% endblock %}

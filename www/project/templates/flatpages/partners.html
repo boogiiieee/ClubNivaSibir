@@ -1,0 +1,28 @@
+{% extends "default.html" %}
+{% load partners_tags thumbnail %}
+
+{% block content %}
+{% get_partners_list %}
+
+{% if partners_list %}
+	{% for item in partners_list %}
+		
+		{% if forloop.counter0|divisibleby:"3"%}
+			<div class="row-fluid">
+		{% endif %}
+		<div class="span4" style="height:200px;">
+			{% if item.site %}<a href="{{item.site}}" target="blanc" style="display:block;">{% endif %}
+				<img src="{{ item.image.url }}" alt="{{ item.title }}" style="max-height:150px;" />
+			{% if item.site %}</a>{% endif %}
+			<h2>{% if item.site %}<a href="{{item.site}}" target="blanc">{% endif %}{{ item.title }}{% if item.site %}</a>{% endif %}</h2>
+		</div>
+		{% if forloop.counter|divisibleby:"3" or forloop.last%}
+			</div>
+		{% endif %}
+
+	{% endfor %}
+	<div class="clearfix"></div>
+{% else %}
+	<h2>Раздел в разработке</h2>
+{% endif %}
+{% endblock %} 

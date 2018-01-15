@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+{% load userphoto_tags %}
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/x-icon">
+		
+		<title>{% block title %}{{ request.flatpage.get_title }}{% endblock %}</title>
+		<meta name="description" content="{% block description %}{{ request.flatpage.get_description }}{% endblock %}" />
+		<meta name="keywords" content="{% block keywords %}{{ request.flatpage.get_keywords }}{% endblock %}" />
+		<meta name="author" content="http://web-aspect.ru">
+		
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.9.1.min.js"></script>
+		
+		<link rel="stylesheet" media="screen" href="{{ MEDIA_URL }}js/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ MEDIA_URL }}js/font-awesome/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/default.css">
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/text.css">
+		<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/green.css">
+		
+		<link rel="stylesheet" href="{{ MEDIA_URL }}js/bootstrap/css/bootstrap-responsive.css">
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/swfobject.js"></script>
+		
+		{% block extra_media %}{% endblock %}
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var active_url=location.href;
+				if (active_url.split('/')[3] != 0){
+					$('ul#nav li a[href*="'+active_url.split('/')[3]+'"]').closest('li').addClass('active');
+				} else { $('ul#nav li:first-child').addClass('active'); }
+			});
+		</script>
+		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-20233490-15', 'stokoney.ru');
+		  ga('send', 'pageview');
+
+		</script>
+	</head>
+	
+	<body>
+		<div class="wrapper">
+			<div class="navbar navbar-inverse navbar-static-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="brand" href="/">
+							<img src="{{ MEDIA_URL }}img/logo.png"> <span>{{ config.get_site_name }}</span>
+						</a>
+						<div class="nav-collapse collapse">
+							<ul id="nav" class="nav">
+								<li><a href="/">Главная страница</a></li>
+								<li><a href="/news/">Новости</a></li>
+								<li><a href="/history/">История</a></li>
+								<li><a href="/gallery/">Фотогалерея</a></li>
+								<li><a href="/forum/">Форум</a></li>
+								<li><a href="/partners/">Партнеры</a></li>
+								<li><a href="/contacts/">Контакты</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="sub-navbar">
+					<div class="container">
+						<div style="float:left">
+							{% if not request.user.is_authenticated %}
+								<p><i class="icon icon-user icon-white"></i> Для участников и партнеров клуба <a href="#loginModal" data-toggle="modal" class="btn btn-login">Войти »</a></p>
+							{% else %}
+								<p>
+									{% if count_new_messages %}
+										<a href="{% url user_msg_dialog %}" style="color:red; text-decoration:none">
+											<i class="icon-envelope-alt icon-large tooltip_btn count_new_messages" rel="tooltip" title="У Вас есть непрочитанные сообщения"></i>
+										</a>&nbsp;
+									{% endif %} 
+									<i class="icon icon-user icon-white"></i> Добро пожаловать, <a class="btn-profile" href="/accounts/profile/"><strong>{{ request.user.get_full_name|default:request.user.username }}</strong></a>! 
+									<a href="{% url auth_logout %}" class="btn btn-login">Выйти »</a>
+								</p>
+							{% endif %}
+						</div>
+						<a class="btn btn-inverse pull-right" style="margin-left:20px;" href="/forum-partners/"><i class="icon icon-book icon-white"></i> Форум для партнеров</a>
+						<a class="btn btn-inverse pull-right" href="/forum/"><i class="icon icon-book icon-white"></i> Форум</a>
+					</div>
+				</div>
+			</div>
+			
+			{% block banners %}{% endblock %}
+			
+			<div class="strip {% if request.user.is_authenticated %}visible-desktop{% endif %}">
+				<div class="container">
+					<div class="row">
+						{% if not request.user.is_authenticated %}
+							<div class="span6">
+								<p>
+									Стань участником клуба Niva Сибирь прямо сейчас <a class="btn btn-primary" href="{% url registration_register %}">РЕГИСТРАЦИЯ</a>
+								</p>
+							</div>
+							<div class="span6">
+								<p>
+									Стань партнером клуба Niva Сибирь <a class="btn btn-primary" href="{% url registration_register_partner %}">РЕГИСТРАЦИЯ ДЛЯ ПАРТНЕРОВ</a>
+								</p>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				{% block content_all %}
+					{% include "messages.html" %}
+					
+					<div class="row">
+						<div class="span12">
+							{% block flatpage %}
+								{% if request.flatpage %}
+									<h1>{{ request.flatpage.get_title }}</h1>
+									{{ request.flatpage.get_content|safe }}
+								{% endif %}
+							{% endblock %}
+						</div>
+					</div>
+					
+					{% block content %}{% endblock %}
+					
+					{% block bottom %}{% endblock %}
+				{% endblock %}
+			</div>
+			<div class="for_footer">
+			</div>
+		</div>
+		<div class="sub-navbar footer">
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					{% get_userphoto1 'org' %}
+					{% if org %}
+						<div class="span6">
+							По всем вопросам обращаться к организатору клуба - <strong style="color:white">{{ org.get_username }}</strong>&nbsp;
+							{% if org.get_phone %}тел.: <strong  style="color:white">{{ org.get_phone }}</strong>, {% endif %}{% if org.get_email %}email: <a style="color:white" href="mailto:{{ org.get_email }}"><strong>{{ org.get_email }}</strong></a>{% endif %}<br>
+						</div>
+					{% endif %}
+					<div class="span6">
+						<div class="row-fluid">
+							<div class="span5">Разработка сайта: <a style="color:white" href="http://web-aspect.ru">web-aspect.ru</a></div>
+							<div class="span7"  style="position:relative;">
+								<a class="brand pull-right" href="/">
+									<span>&copy; 2013 г. {{ config.get_site_name }}</span>							
+									<img src="/media/img/logo.png">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		
+		<script type="text/javascript" src="{{ MEDIA_URL }}js/bootstrap/js/bootstrap.min.js"></script>
+		
+		<!--script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-transition.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-alert.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-modal.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-dropdown.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-scrollspy.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-tab.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-tooltip.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-popover.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-button.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-collapse.js"></script-->
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-carousel.js"></script>
+		<!--script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-typeahead.js"></script>
+		<script src="{{ MEDIA_URL }}js/bootstrap/plugin/bootstrap-affix.js"></script-->
+		
+		<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3 id="loginModalLabel">Авторизация</h3>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" action="{% url auth_login %}" method="post">{% csrf_token %}
+					<div class="control-group">
+						<label class="control-label" for="inputLogin">Логин</label>
+						<div class="controls">
+							<input type="text" id="inputLogin" placeholder="Логин" name="username">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="inputPassword">Пароль</label>
+						<div class="controls">
+							<input type="password" id="inputPassword" placeholder="Пароль" name="password">
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<p><a href="{% url auth_password_reset %}">Забыли логин или пароль?</a></p>
+							<button type="submit" class="btn">Войти</button>
+							<a class="btn btn-primary" href="{% url registration_register %}">РЕГИСТРАЦИЯ</a>
+						</div>
+					</div>
+				</form>
+				
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal">Закрыть</button>
+			</div>
+		</div>
+		
+		<script>
+			$(function(){
+				$('#myCarousel').carousel();
+				$('.tooltip_btn').tooltip();
+				setInterval(function (){ $('.count_new_messages').fadeToggle(800); });
+			});
+		</script>
+	</body>
+</html>

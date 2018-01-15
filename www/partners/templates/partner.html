@@ -1,0 +1,25 @@
+{% load thumbnail %}
+
+{% if partner.image or partner.flash %}
+	<div>
+		{% if partner.site %}<a href="{{ partner.site }}" title="{{ partner.title }}" target="_blank">{% endif %}
+			<div id="flash_partner_{{ partner.id }}">
+				{% if partner.image %}
+					{% if partner.site %}<a href="{{ partner.site }}" title="{{ partner.title }}" target="_blank">{% endif %}
+						{% thumbnail partner.image "165x75" as im %}
+							<img src="{{ im.url }}" alt="{{ partner.title }}" />
+						{% endthumbnail %}
+					{% if partner.site %}</a>{% endif %}
+				{% endif %}
+			</div>
+		{% if partner.site %}</a>{% endif %}
+
+		{% if partner.flash %}
+			<script type="text/javascript">
+				var so_{{ partner.id }} = new SWFObject("{{ partner.flash.url }}", "flash_partner_{{ partner.id }}", "165", "75", "8", "#ffffff");
+				so_{{ partner.id }}.addParam("wmode", "transparent");
+				so_{{ partner.id }}.write("flash_partner_{{ partner.id }}");
+			</script>
+		{% endif %}
+	</div>
+{% endif %}

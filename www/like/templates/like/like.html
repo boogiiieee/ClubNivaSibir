@@ -1,0 +1,32 @@
+<script>
+	$(function(){
+		$('#id_like_{{ ctype }}_{{ object_pk }} a.like_link').click(function(){
+			$.ajax({
+				type: "GET",
+				url: "{% url add_like_url %}?id={{ obj.id }}",
+				success: function(data){
+					if ( data.result == 1 ) {
+						$('#id_like_{{ ctype }}_{{ object_pk }} .like_msg').html('<span class="success">Спасибо! Ваш голос принят.</span>');
+						$('#id_like_{{ ctype }}_{{ object_pk }} .like_count').text(data.count);
+					}
+					else if ( data.result == 2 ) {
+						$('#id_like_{{ ctype }}_{{ object_pk }} .like_msg').html('<span class="warning">Вы уже голосовали.</span>');
+					}
+					else {
+						$('#id_like_{{ ctype }}_{{ object_pk }} .like_msg').html('<span class="error">Произошла ошибка! Попробуйте снова или обратитесь к администатору.</span>');
+					}
+				},
+				error: function(error) {
+					$('#id_like_{{ ctype }}_{{ object_pk }} .like_msg').html('<span class="error">Произошла ошибка! Попробуйте снова или обратитесь к администатору.</span>');
+				},
+				dataType: "json"
+			});
+		});
+	});
+</script>
+
+<div id="id_like_{{ ctype }}_{{ object_pk }}" class="like">
+	<div class="like_msg"></div>
+	<a href="#" class="like_link">Лайкнуть</a>
+	<div class="like_count">{{ obj.like_count }}</div>
+</div>

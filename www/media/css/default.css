@@ -1,0 +1,300 @@
+.align-left {text-align:left !important; }
+.align-right {text-align:right !important; }
+.align-center {text-align: center !important; }
+.align-justify {text-align:justify !important; }
+ 
+img.align-left, table.align-left {float:left; margin-right:10px;margin-bottom:5px;}
+img.align-right, table.align-right {float:right; margin-left:10px;margin-bottom:5px;}
+img.align-center, table.align-center { display: block; margin-left: auto; margin-right: auto;}
+
+html, body {
+	height: 100%;
+}
+body {
+	min-width:500px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	background: #fff;
+	/*padding-bottom: 25px;*/
+}
+.for_footer{height:140px;margin-top:25px;}
+.centered-text {
+	margin: 0 auto !important;
+	float: none !important;
+	text-align: center;
+	width: 960px;
+}
+.errorlist{color: #b94a48;}
+/*****************************************************************************
+	Navbar Styles
+*****************************************************************************/
+
+.navbar .brand, footer .brand {
+	position:relative;
+	height: 70px;
+	margin: 0;
+	padding: 3px;
+	color:#fff;
+	display: block;
+}
+.navbar .brand span, footer .brand span {
+	display:block;
+	margin:23px 20px 23px 140px;
+}
+.navbar .brand img, footer .brand img {
+	position:absolute;
+	height: 115px;
+	width: 119px;
+}
+
+.navbar-inverse .navbar-inner {
+	background-image: none;
+	filter: none;
+}
+.sub-navbar {
+	padding-top: 0;
+	padding-bottom: 1px;
+	margin:0;
+}
+footer .brand img{
+	top:-30px;
+	right:0px;
+}
+footer .brand{
+	top:-30px;
+	right:0;
+	position:absolute;
+}
+footer .brand span {
+	display: block;
+	margin: 28px 120px 23px 0px;
+}
+footer .brand:hover, footer .brand:focus {
+	color: #ffffff;
+}
+.sub-navbar .container {
+	color: #FFF;
+}
+.sub-navbar .container p {
+	padding: 12px 0 0 140px;
+	float:left;
+}
+.navbar-inverse .nav .active > a, 
+.navbar-inverse .nav .active > a:hover, 
+.navbar-inverse .nav .active > a:focus {
+	color: #FFF;
+	background-color: transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+/*menu button*/
+.navbar-inverse .btn-navbar {
+    background-color: #121212;
+    background-image: none;
+    background-repeat: no-repeat;
+    filter: none;
+}
+.navbar .nav{
+	margin: 17px 10px 0 0;
+}
+.navbar .nav a {
+	padding: 10px 10px 10px !important;
+}
+.nav-collapse .nav {
+	float: right !important;
+}
+
+
+/* Carousel base class */
+.carousel-wrapper {
+	background: #2F353E;
+}
+.carousel {
+	margin-bottom: 0px;
+	max-width:1500px;
+	margin:0 auto;
+}
+	.carousel .container {
+		position: relative;
+		z-index: 9;
+		height: 100%;
+	}
+	.carousel-control {
+		height: 80px;
+		margin-top: 0;
+		font-size: 120px;
+		text-shadow: 0 1px 1px rgba(0,0,0,.4);
+		background-color: transparent;
+		border: 0;
+	}
+	.carousel .item {
+		height: 500px;
+	}
+	.carousel img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		height: 500px;
+	}
+	.carousel-caption {
+		background-color: transparent;
+		position: static;
+		max-width: 550px;
+		padding: 0 20px;
+		margin-top: 200px;
+	}
+	.carousel-caption h1,
+	.carousel-caption .lead {
+		text-transform: uppercase;
+		padding: 20px 10px;
+		color: #FFF;
+		background: #000;
+		-webkit-border-radius: 3px;
+		   -moz-border-radius: 3px;
+				border-radius: 3px;
+		zoom: 1;
+		filter: alpha(opacity=70);
+		opacity: 0.7;
+		-webkit-transition: all .5s;
+		-moz-transition: all .5s;
+		-ms-transition: all .5s;
+		-o-transition: all .5s;
+		transition: all .5s;
+	}
+	.carousel-caption h1:hover, 
+	.carousel-caption .lead:hover {
+		filter: alpha(opacity=100);
+		opacity: 1;
+	}
+	.carousel-caption .btn {
+		margin-top: 10px;
+	}
+
+
+.strip {
+	background: #2F353E;
+	color: #8E959C;
+}	
+	.strip {
+		width: auto;
+		margin-bottom: 60px;
+		padding: 20px 0 10px 0;
+		border-top: 1px solid #333;
+		border-bottom: 1px solid #333;
+		text-align: center;
+		zoom: 1;	
+	}
+	.strip .container .row > div {
+		color: #8E959C;
+		font-weight: 400;
+	}
+	
+/*****************************************************************************
+	Footer Styles
+*****************************************************************************/
+
+footer {
+	width: auto;
+    margin: 0;
+	padding: 25px 20px 25px 20px;
+	background: #2F353E;
+	color: #8E959C;
+}
+	footer a {
+		color: #FFF;
+	}
+	footer a:hover {
+		color: #8E959C;
+	}
+	.footer.sub-navbar{padding:25px 0 25px 0;margin-top:-140px}
+	
+.clr{clear:both;}	
+.thumbnail img { border:none !important; }
+.link_more{background-color: #97BA0C;padding:10px;color: #ffffff;display:block;margin-top:10px;}
+.link_more:hover{color: #ffffff;}
+.date{
+	float: left;
+	background-color: #97BA0C;
+	width: 80px;
+	text-align: center;
+	padding:20px 0;
+	font-size: 24px;
+	color: #ffffff;
+	margin-right:20px;
+}
+.margin_b{margin-bottom:20px;display:block;}
+.date small{font-size: 14px;}
+
+.green.table th{
+	font-weight: bold;
+	background: #f5f5f5!important;
+	text-align: center;
+}
+.green.table td, .green.table th{vertical-align:middle;}
+.v_a_t.table td{vertical-align:top;}
+.small{font-size: 85%;}
+
+.btn-info{background-color: #0088cc!important;}
+.btn-info:hover{background-color: #6ABCE6!important;}
+
+.text_c{text-align:center!important;}
+.text_r{text-align:right!important;}
+.margin10b{margin-bottom:10px;}
+
+.edit-icon{
+	background-image: url("/media/img/icon_post_edit.gif");
+	text-indent:-10000px;
+	display:block;
+	height:20px;
+	width:56px;
+	overflow:hidden;
+	float:right;
+}
+.edit-icon:hover{background-position: 0px 20px;}
+
+.uchastniki{
+	margin: 0px auto;
+	border: 1px solid #97BA0C;
+	width: 220px;
+	color: #2B587A;
+}
+.uchastniki h3{
+	display: block;
+	height: 22px;
+	font-weight: bold;
+	padding: 6px;
+	vertical-align: middle;
+	line-height: 1.81em;
+	color: #FFFFFF;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #97BA0C;
+	margin:0px;
+}
+.uchastniki h3 a{ color:white; display:block; width:100%; height:100%;}
+.uchastniki h3.bt{margin-top:5px;}
+.uchastniki h3.bt:hover{opacity: 0.9;}
+.uchastniki .col{
+	font-weight: bold;
+	padding: 8px 0px 2px 0px;
+}
+
+.uchastniki .user{
+	width: 73px;
+	padding: 3px 0px;
+	height: 68px;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+
+}
+.uchastniki .user_name{height:20px;}
+
+.bottom_td_content { vertical-align:bottom !important; text-align:center !important; border-top:none !important; }

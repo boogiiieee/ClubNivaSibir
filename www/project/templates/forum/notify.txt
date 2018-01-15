@@ -1,0 +1,5 @@
+{% load i18n %}
+{{ body }}
+
+--
+{% blocktrans with site.name as site_name and site.domain as domain and thread.get_absolute_url as url %}Вы получили это сообщение, потому что Вы подписывались на тему форума на сайте {{ site_name }}.  Перейдите по ссылке, чтобы изменить подписку: http://{{ domain }}{{ url }}{% endblocktrans %}

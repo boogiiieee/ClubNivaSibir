@@ -1,0 +1,68 @@
+{{ form.media }}
+{% if form.errors %}
+	<div class="alert alert-error">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<strong>Ошибка!</strong> Исправьте ошибки и повторите попытку.
+	</div>
+{% endif %}
+
+{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+
+{% for field in form.visible_fields %}
+	<div class="control-group {% if field.errors %}error{% endif %}">
+		<label class="control-label" for="{{ field.id_for_label }}"><strong>{% if field.field.required %}<span style="color:red;">*</span>{% endif %} {{ field.label }}</strong></label>
+		<div class="controls">
+			{{ field }}
+			{% if field.errors %}<span class="help-inline">{{ field.errors }}</span>{% endif %}
+		</div>
+	</div>
+{% endfor %}
+
+{% if formset %}
+	{{ formset.management_form }}
+	<table class="table table-striped table-condensed">
+		<tbody>
+			{% for form in formset.forms %}
+				<tr class="el_{{ forloop.counter }} {% if field.errors %}error{% endif %}" {% if not forloop.first %}style="display:none"{% endif %}>
+					{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+
+					{% for field in form.visible_fields %}
+						<td style="border:none">
+							<label class="control-label" for="{{ field.id_for_label }}"><strong>{{ field.label }}</strong></label>
+							<div class="controls">
+								{{ field }}
+								{% if field.errors %}<span class="text-error">{{ field.errors }}</span>{% endif %}
+							</div>
+						</td>
+					{% endfor %}
+					
+					{% if not forloop.last %}
+						<td style="border:none">
+							<div class="el_{{ forloop.counter }} control-label" {% if not forloop.first %}style="display:none"{% endif %}>
+								<i class="icon icon-plus"></i> <a class="button_add_form" href='el_{{ forloop.counter|add:"1" }}'>Добавить файл</a>
+							</div>
+						</td>
+					{% endif %}
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
+
+<script>
+	$(function(){
+		$('.button_add_form').click(function(){
+			$(this).closest('div').hide();
+			var el = $(this).attr('href');
+			$('.'+el).show();
+			return false;
+		});
+	});
+</script>
+
+<div class="control-group">
+	<div class="controls">
+		<p>Все поля, отмеченные символом (<span style="color:red;">*</span>), обязательны для заполнения.</p>
+		<button type="submit" class="btn">Отправить</button>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+
+<div id="list_comments">
+	<h3 class="block_title">Комментарии ({{ comment_list|length }}):</h3>
+	{% if comment_list %}
+		<ul>
+		{% for comment in comment_list %}
+			<li id="comment_{{ comment.id }}">
+				<div>
+					<small>{{ comment.submit_date|date:"d.m.Y в H:i" }} <strong style="color:#0088cc">{{ comment.user_name }}</strong></a> написал(-а):</small>
+				</div>
+				<p>
+					{{ comment.comment }}
+				</p>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</div>

@@ -1,0 +1,28 @@
+{% load comments i18n %}
+<form id="form_comment" action="{% comment_form_target %}" method="post">{% csrf_token %}
+ <input type="hidden" name="next" value="/news/{{ form.object_pk.value }}#form_comment"/>
+  {% for field in form %}
+    {% if field.is_hidden %}
+      <div>{{ field }}</div>
+    {% else %}
+	<div class="control-group {% if field.errors %}error{% endif %}"
+		{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}
+		{% ifequal field.name "url" %} style="display:none;"{% endifequal %}
+		{% if request.user.is_authenticated %}{% ifequal field.name "name" %} style="display:none;"{% endifequal %}{% ifequal field.name "email" %} style="display:none;"{% endifequal %}{% endif %}
+	>
+      {% if field.errors %}{{ field.errors }}{% endif %}
+		{% ifequal field.name "comment" %}
+			<label class="control-label">{{ field.label }}:</label>
+			<textarea id="id_comment" class="span12" rows="10" cols="40" name="comment"></textarea>
+		{% else %}
+			<label class="control-label">{{ field.label_tag }} 
+			{{ field }}
+		{% endifequal %}
+	</div>
+    {% endif %}
+  {% endfor %}
+  <p class="submit">
+    <input type="submit" name="post" class="submit-post btn" value="Опубликовать" />
+    <input type="submit" name="preview" class="submit-preview btn btn-info" value="Предпросмотр" />
+  </p>
+</form>

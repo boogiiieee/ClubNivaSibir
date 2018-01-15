@@ -1,0 +1,25 @@
+<h3>Регистрация на сайте {{ site }}</h3>
+{% if partner %}
+	На сайте <a href="http://{{ site }}">{{ site }}</a> зарегистрировался новый партнер.
+	<ul>
+		{% if partner.user.first_name %}<li><strong>Имя:</strong> {{ partner.user.first_name }}</li>{% endif %}
+		{% if partner.user.last_name %}<li><strong>Фамилия:</strong> {{ partner.user.last_name }}</li>{% endif %}
+		{% if partner.user.email %}<li><strong>E-mail:</strong> {{ partner.user.email }}</li>{% endif %}
+		{% if partner.city %}<li><strong>Город:</strong> {{ partner.city }}</li>{% endif %}
+		{% if partner.company %}<li><strong>Название компании:</strong> {{ partner.company }}</li>{% endif %}
+		{% if partner.phone %}<li><strong>Контактный телефон:</strong> {{ partner.phone }}</li>{% endif %}
+		{% if partner.post %}<li><strong>Должность:</strong> {{ partner.post }}</li>{% endif %}
+		{% if partner.dealer_code %}<li><strong>Код дилера:</strong> {{ partner.dealer_code }}</li>{% endif %}
+	</ul>
+	<p>
+		Для активации нового партнера необходимо перейти по ссылке: <a href="http://{{ site }}/accounts/activate-partner/{{ activation_key }}/">{{ site }}/accounts/activate-partner/{{ activation_key }}/</a>
+	</p>
+{% else %}
+	<p>
+		Для активации аккаунта необходимо перейти по ссылке: <a href="http://{{ site }}/accounts/activate/{{ activation_key }}/">{{ site }}/accounts/activate/{{ activation_key }}/</a>
+	</p>
+{% endif %}
+
+<p>
+	<strong>Спасибо!</strong>
+</p>

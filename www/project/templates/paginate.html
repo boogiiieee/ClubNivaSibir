@@ -1,0 +1,32 @@
+{% load paginate %}
+
+{% if is_paginated %}
+	{% paginate_split_list page_range page %}
+	
+	<div class="pagination pagination-centered">
+		<ul>
+			{% if paginate_page_range.1 %}
+				<li><a href="{% get_url 'page' paginate_page_range.1 %}">«</a></li>
+			{% else %}
+				<li class="disabled"><a>«</a></li>
+			{% endif %}
+			
+			{% for interval,more in paginate_page_range.0 %}
+				{% for p in interval %}
+					{% ifequal p page %}
+						<li class="active"><a>{{ p }}</a></li>
+					{% else %}
+						<li><a href="{{ href }}?page={{ p }}{{ get }}">{{ p }}</a></li>
+					{% endifequal %}
+				{% endfor %}
+				{% if more %}<li class="disabled"><a>&nbsp; ... &nbsp;</a></li>{% endif %}
+			{% endfor %}
+			
+			{% if paginate_page_range.2 %}
+				<li><a href="{% get_url 'page' paginate_page_range.2 %}">»</a></li>
+			{% else %}
+				<li class="disabled"><a>»</a></li>
+			{% endif %}
+		</ul>
+	</div>
+{% endif %}

@@ -1,0 +1,18 @@
+{% extends "mail/mail.html" %}
+
+{% block content %}
+	<h2>Спасибо за сообщение!</h2>
+	<p>Ваше сообщение <strong>№{{ obj.id }}</strong> принято.</p>
+	<p>В ближайшее время с Вами свяжется наш менеджер.</p>
+	
+	<p>
+		Вы написали:
+		<ul>
+			<li><strong>ФИО:</strong> {{ obj.get_name }}</li>
+			<li><strong>E-mail:</strong> {{ obj.get_email }}</li>
+			{% if obj.get_phone %}<li><strong>Телефон:</strong> {{ obj.get_phone }}</li>{% endif %}
+			<li><strong>Сообщение:</strong> {{ obj.get_text }}</li>
+			<li><strong>Дата:</strong> {{ obj.get_created_at|date:"d.m.Y" }}</li>
+		</ul>
+	</p>
+{% endblock %}

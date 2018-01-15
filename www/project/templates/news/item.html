@@ -1,0 +1,44 @@
+{% extends "default.html" %}
+{% load thumbnail comments %}
+
+{% block title %}{{ item.get_title }}{% endblock %}
+{% block description %}{{ item.get_description }}{% endblock %}
+{% block keywords %}{{ item.get_keywords }}{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="span12">
+			<h1>{{ item.get_title }}</h1>
+		</div>
+	</div>
+				
+	<div class="media">
+		<div class="thumbnail pull-left">
+			{% if item.get_image %}
+				{% thumbnail item.get_image "140x140" as im %}
+					<img class="media-object" src="{{ im.url }}" alt="{{ item.get_title }}">
+				{% endthumbnail %}
+			{% else %}
+				<img class="media-object" src="{{ MEDIA_URL }}img/no_image.png" alt="{{ item.get_title }}">
+			{% endif %}
+		</div>
+		<div class="media-body">
+			<small><strong>{{ item.created_at|date:"d.m.Y" }}</strong></small>
+			<div>{{ item.text|safe }}</div>
+		</div>
+	</div>
+	
+	{% render_comment_list for item %}
+		
+
+	<div id="wrap_write_comment">
+		{% render_comment_form for item %}
+	</div>
+
+
+	<div class="pagination pagination-centered">
+		<ul>
+			<li><a href="/news/">К списку новостей »</a></li>
+		</ul>
+	</div>
+{% endblock %}

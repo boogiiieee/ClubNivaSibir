@@ -1,0 +1,1277 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-14 14:39+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: .\dashboard.py:26 .\admin_tools\dashboard\dashboards.py:81
+#: .\admin_tools\menu\menus.py:100
+msgid "Dashboard"
+msgstr ""
+
+#: .\dashboard.py:29 .\admin_tools\dashboard\dashboards.py:239
+#: .\admin_tools\dashboard\modules.py:400 .\admin_tools\menu\menus.py:103
+msgid "Applications"
+msgstr ""
+
+#: .\dashboard.py:35 .\dashboard.py:109
+#: .\admin_tools\dashboard\dashboards.py:245 .\admin_tools\menu\menus.py:107
+msgid "Administration"
+msgstr ""
+
+#: .\dashboard.py:37
+msgid "Groups"
+msgstr "Группы пользователей"
+
+#: .\dashboard.py:38
+msgid "Users"
+msgstr "Пользователи"
+
+#: .\dashboard.py:39 .\admintrans\__init__.py:6
+msgid "Sites"
+msgstr "Сайты"
+
+#: .\dashboard.py:45
+msgid "Google analytics"
+msgstr "Google аналитика"
+
+#: .\dashboard.py:46
+msgid "Helpdesk"
+msgstr "Система заявок"
+
+#: .\dashboard.py:47 .\admin_tools\theming\templates\admin\base.html.py:35
+msgid "Documentation"
+msgstr "Документация"
+
+#: .\dashboard.py:58
+msgid "Site"
+msgstr "Сайт"
+
+#: .\dashboard.py:62
+msgid "Index"
+msgstr "Главная страница"
+
+#: .\dashboard.py:64 .\dashboard.py:72 .\dashboard.py:79 .\dashboard.py:85
+#: .\dashboard.py:92 .\dashboard.py:99
+msgid "Flatpage"
+msgstr "Текст страницы"
+
+#: .\dashboard.py:65 .\banners\__init__.py:5
+msgid "Banners"
+msgstr "Баннеры"
+
+#: .\dashboard.py:66 .\dashboard.py:70 .\dashboard.py:73 .\news\__init__.py:5
+msgid "News"
+msgstr "Новости"
+
+#: .\dashboard.py:77 .\admintrans\templates\admin\change_form.html.py:31
+#: .\templates\admin\change_form.html.py:31
+msgid "History"
+msgstr "История"
+
+#: .\dashboard.py:83 .\dashboard.py:86 .\gallery\__init__.py:5
+msgid "Gallery"
+msgstr "Фотогалерея"
+
+#: .\dashboard.py:90 .\dashboard.py:93 .\forum\models.py:121
+#: .\forum\models.py:162
+msgid "Forum"
+msgstr "Форум"
+
+#: .\dashboard.py:97
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\dashboard.py:100
+msgid "Map"
+msgstr "Интерактивная карта"
+
+#: .\dashboard.py:101 .\feedback\__init__.py:13
+msgid "Feedback"
+msgstr "Сообщения формы обратной связи"
+
+#: .\dashboard.py:115 .\dashboard.py:117 .\filebrowser\views.py:143
+#: .\filebrowser\templates\filebrowser\append.html.py:5
+#: .\filebrowser\templates\filebrowser\append.html.py:7
+#: .\filebrowser\templates\filebrowser\include\breadcrumbs.html.py:8
+#: .\filebrowser\templates\filebrowser\include\breadcrumbs.html.py:10
+msgid "FileBrowser"
+msgstr ""
+
+#: .\dashboard.py:123 .\admin_tools\dashboard\dashboards.py:224
+msgid "Quick links"
+msgstr ""
+
+#: .\dashboard.py:129 .\admin_tools\dashboard\dashboards.py:230
+msgid "Return to site"
+msgstr ""
+
+#: .\dashboard.py:130 .\admin_tools\dashboard\dashboards.py:231
+#: .\admin_tools\theming\templates\admin\base.html.py:43
+msgid "Change password"
+msgstr ""
+
+#: .\dashboard.py:132 .\admin_tools\dashboard\dashboards.py:233
+#: .\admin_tools\theming\templates\admin\base.html.py:50
+msgid "Log out"
+msgstr ""
+
+#: .\dashboard.py:140 .\dashboard.py:158
+#: .\admin_tools\dashboard\dashboards.py:250
+#: .\admin_tools\dashboard\dashboards.py:304
+#: .\admin_tools\dashboard\modules.py:553
+msgid "Recent Actions"
+msgstr ""
+
+#: .\admin_tools\dashboard\dashboards.py:254
+msgid "Latest Django News"
+msgstr ""
+
+#: .\admin_tools\dashboard\dashboards.py:261
+msgid "Support"
+msgstr ""
+
+#: .\admin_tools\dashboard\dashboards.py:264
+msgid "Django documentation"
+msgstr ""
+
+#: .\admin_tools\dashboard\dashboards.py:269
+msgid "Django \"django-users\" mailing list"
+msgstr ""
+
+#: .\admin_tools\dashboard\dashboards.py:274
+msgid "Django irc channel"
+msgstr ""
+
+#: .\admin_tools\dashboard\modules.py:329
+msgid "Links"
+msgstr ""
+
+#: .\admin_tools\dashboard\modules.py:606
+msgid "No recent actions."
+msgstr ""
+
+#: .\admin_tools\dashboard\modules.py:652
+msgid "RSS Feed"
+msgstr ""
+
+#: .\admin_tools\dashboard\templates\admin\app_index.html.py:9
+#: .\admin_tools\theming\templates\admin\base.html.py:57
+#: .\admintrans\templates\admin\app_index.html.py:9
+#: .\admintrans\templates\admin\change_form.html.py:19
+#: .\admintrans\templates\admin\change_list.html.py:42
+#: .\admintrans\templates\admin\delete_confirmation.html.py:6
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:6
+#: .\filebrowser\templates\filebrowser\include\breadcrumbs.html.py:5
+#: .\templates\admin\app_index.html.py:9
+#: .\templates\admin\change_form.html.py:19
+#: .\templates\admin\change_list.html.py:46
+#: .\templates\admin\delete_confirmation.html.py:6
+#: .\templates\admin\delete_selected_confirmation.html.py:6
+msgid "Home"
+msgstr ""
+
+#: .\admin_tools\dashboard\templates\admin\app_index.html.py:11
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: .\admin_tools\dashboard\templates\admin_tools\dashboard\dashboard.html.py:55
+msgid "Modules"
+msgstr ""
+
+#: .\admin_tools\dashboard\templates\admin_tools\dashboard\modules\app_list.html.py:13
+#: .\admin_tools\dashboard\templates\admin_tools\dashboard\modules\model_list.html.py:11
+#: .\admintrans\templates\admin\change_form.html.py:22
+#: .\admintrans\templates\dashboard\modules\app_list.html.py:13
+#: .\templates\admin\change_form.html.py:22
+msgid "Add"
+msgstr ""
+
+#: .\admin_tools\dashboard\templates\admin_tools\dashboard\modules\app_list.html.py:14
+#: .\admin_tools\dashboard\templates\admin_tools\dashboard\modules\model_list.html.py:12
+#: .\admintrans\templates\dashboard\modules\app_list.html.py:14
+msgid "Change"
+msgstr ""
+
+#: .\admin_tools\menu\items.py:328
+msgid "Bookmarks"
+msgstr ""
+
+#: .\admin_tools\menu\templates\admin\base_site.html.py:4
+msgid "Django site admin"
+msgstr ""
+
+#: .\admin_tools\menu\templates\admin\base_site.html.py:16
+msgid "Django administration"
+msgstr ""
+
+#: .\admin_tools\menu\templates\admin_tools\menu\menu.html.py:32
+msgid "Please enter a name for the bookmark"
+msgstr ""
+
+#: .\admin_tools\theming\templates\admin\base.html.py:30
+msgid "Welcome,"
+msgstr ""
+
+#: .\admintrans\__init__.py:5
+msgid "Auth"
+msgstr "Аутентификация"
+
+#: .\admintrans\admin.py:37
+#, python-format
+msgid "Add %s"
+msgstr ""
+
+#: .\admintrans\admin.py:39
+#, python-format
+msgid "Change %s"
+msgstr ""
+
+#: .\admintrans\admin.py:42
+#, python-format
+msgid "Select %s"
+msgstr ""
+
+#: .\admintrans\admin.py:44
+#, python-format
+msgid "Select %s to change"
+msgstr ""
+
+#: .\admintrans\admin.py:66
+#, python-format
+msgid "%s administration"
+msgstr ""
+
+#: .\admintrans\templates\admin\actions.html.py:4
+#: .\templates\admin\actions.html.py:4
+msgid "Run the selected action"
+msgstr ""
+
+#: .\admintrans\templates\admin\actions.html.py:4
+#: .\filebrowser\templates\filebrowser\include\search.html.py:19
+#: .\templates\admin\actions.html.py:4
+msgid "Go"
+msgstr ""
+
+#: .\admintrans\templates\admin\actions.html.py:11
+#: .\templates\admin\actions.html.py:11
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: .\admintrans\templates\admin\actions.html.py:11
+#: .\templates\admin\actions.html.py:11
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: .\admintrans\templates\admin\actions.html.py:13
+#: .\templates\admin\actions.html.py:13
+msgid "Clear selection"
+msgstr ""
+
+#: .\admintrans\templates\admin\change_form.html.py:32
+#: .\templates\admin\change_form.html.py:32
+msgid "View on site"
+msgstr ""
+
+#: .\admintrans\templates\admin\change_form.html.py:43
+#: .\admintrans\templates\admin\change_list.html.py:73
+#: .\templates\admin\change_form.html.py:43
+#: .\templates\admin\change_list.html.py:77
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\admintrans\templates\admin\change_list.html.py:64
+#: .\templates\admin\change_list.html.py:68
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: .\admintrans\templates\admin\change_list.html.py:84
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:3
+#: .\templates\admin\change_list.html.py:88
+msgid "Filter"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_confirmation.html.py:10
+#: .\templates\admin\delete_confirmation.html.py:10
+msgid "Delete"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_confirmation.html.py:17
+#: .\templates\admin\delete_confirmation.html.py:17
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_confirmation.html.py:25
+#: .\templates\admin\delete_confirmation.html.py:25
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_confirmation.html.py:33
+#: .\templates\admin\delete_confirmation.html.py:33
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_confirmation.html.py:38
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:43
+#: .\templates\admin\delete_confirmation.html.py:38
+#: .\templates\admin\delete_selected_confirmation.html.py:43
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:9
+#: .\templates\admin\delete_selected_confirmation.html.py:9
+msgid "Delete multiple objects"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:16
+#: .\templates\admin\delete_selected_confirmation.html.py:16
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:24
+#: .\templates\admin\delete_selected_confirmation.html.py:24
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: .\admintrans\templates\admin\delete_selected_confirmation.html.py:32
+#: .\templates\admin\delete_selected_confirmation.html.py:32
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: .\admintrans\templates\admin\pagination.html.py:10
+#: .\templates\admin\pagination.html.py:10
+msgid "Show all"
+msgstr ""
+
+#: .\admintrans\templates\admin\pagination.html.py:11
+#: .\configuration\templates\blocks\configuration.html.py:9
+#: .\templates\admin\pagination.html.py:11
+msgid "Save"
+msgstr ""
+
+#: .\banners\models.py:18 .\gallery\models.py:18 .\gallery\models.py:70
+#: .\my_flatpages\models.py:11 .\news\models.py:20 .\yandex_map\models.py:15
+#, fuzzy
+msgid "title"
+msgstr "Сайты"
+
+#: .\banners\models.py:19 .\gallery\models.py:71 .\news\models.py:21
+msgid "image"
+msgstr ""
+
+#: .\banners\models.py:19
+msgid "help text banner image"
+msgstr ""
+
+#: .\banners\models.py:20
+msgid "url"
+msgstr ""
+
+#: .\banners\models.py:20
+msgid "help text banner url"
+msgstr ""
+
+#: .\banners\models.py:21 .\gallery\models.py:23 .\my_flatpages\models.py:19
+#: .\news\models.py:28
+msgid "description"
+msgstr ""
+
+#: .\banners\models.py:22 .\news\models.py:25 .\yandex_map\models.py:28
+msgid "is_active"
+msgstr ""
+
+#: .\banners\models.py:23 .\gallery\models.py:21 .\gallery\models.py:74
+#: .\news\models.py:26 .\yandex_map\models.py:29
+msgid "order"
+msgstr ""
+
+#: .\banners\models.py:40 .\gallery\models.py:89 .\news\models.py:57
+msgid "File name validation error."
+msgstr ""
+
+#: .\banners\models.py:43
+msgid "banner"
+msgstr ""
+
+#: .\banners\models.py:44
+msgid "banners"
+msgstr ""
+
+#: .\captcha\fields.py:50
+msgid "Play captcha as audio file"
+msgstr ""
+
+#: .\captcha\fields.py:67 .\captcha\fields.py:86
+#: .\captcha\tests\__init__.py:63
+msgid "Invalid CAPTCHA"
+msgstr ""
+
+#: .\captcha\tests\__init__.py:89
+msgid "This field is required."
+msgstr ""
+
+#: .\configuration\__init__.py:5 .\configuration\views.py:25
+msgid "Configuration"
+msgstr ""
+
+#: .\configuration\models.py:11
+msgid "site name"
+msgstr ""
+
+#: .\configuration\models.py:14 .\configuration\models.py:17
+msgid "configuration"
+msgstr ""
+
+#: .\configuration\models.py:18
+msgid "configurations"
+msgstr ""
+
+#: .\configuration\views.py:42
+msgid "Save form configuration."
+msgstr ""
+
+#: .\configuration\views.py:44
+msgid "Error save form configuration."
+msgstr ""
+
+#: .\feedback\forms.py:16 .\forum\forms.py:12 .\forum\forms.py:18
+msgid "Captcha"
+msgstr ""
+
+#: .\feedback\forms.py:22 .\filebrowser\forms.py:26
+#: .\filebrowser\templates\filebrowser\versions.html.py:63
+msgid "Name"
+msgstr ""
+
+#: .\feedback\forms.py:23
+msgid "Email"
+msgstr ""
+
+#: .\feedback\forms.py:24
+msgid "Phone"
+msgstr ""
+
+#: .\feedback\forms.py:25
+msgid "Text"
+msgstr ""
+
+#: .\feedback\forms.py:31
+msgid "Invalid name field"
+msgstr ""
+
+#: .\feedback\forms.py:39
+msgid "Invalid email field"
+msgstr ""
+
+#: .\feedback\forms.py:47
+msgid "Invalid phone field"
+msgstr ""
+
+#: .\feedback\forms.py:54
+msgid "Invalid text field"
+msgstr ""
+
+#: .\feedback\models.py:10
+msgid "name"
+msgstr ""
+
+#: .\feedback\models.py:11
+msgid "email"
+msgstr ""
+
+#: .\feedback\models.py:12
+msgid "phone"
+msgstr ""
+
+#: .\feedback\models.py:13 .\news\models.py:23 .\yandex_map\models.py:17
+msgid "text"
+msgstr ""
+
+#: .\feedback\models.py:14
+msgid "created at"
+msgstr ""
+
+#: .\feedback\models.py:26
+msgid "feedback item"
+msgstr ""
+
+#: .\feedback\models.py:27
+msgid "feedback items"
+msgstr ""
+
+#: .\feedback\views.py:26
+msgid "Thanks letter send."
+msgstr ""
+
+#: .\filebrowser\fields.py:58
+#, python-format
+msgid "Extension %(ext)s is not allowed. Only %(allowed)s is allowed."
+msgstr ""
+
+#: .\filebrowser\forms.py:26 .\filebrowser\forms.py:32
+#: .\filebrowser\forms.py:49 .\filebrowser\forms.py:55
+msgid "Only letters, numbers, underscores, spaces and hyphens are allowed."
+msgstr ""
+
+#: .\filebrowser\forms.py:35 .\filebrowser\forms.py:58
+msgid "The Folder already exists."
+msgstr ""
+
+#: .\filebrowser\forms.py:49
+msgid "New Name"
+msgstr ""
+
+#: .\filebrowser\forms.py:60
+msgid "The File already exists."
+msgstr ""
+
+#: .\filebrowser\settings.py:119
+msgid "Folder"
+msgstr ""
+
+#: .\filebrowser\settings.py:120 .\gallery\admin.py:36
+msgid "Image"
+msgstr ""
+
+#: .\filebrowser\settings.py:121
+msgid "Video"
+msgstr ""
+
+#: .\filebrowser\settings.py:122
+msgid "Document"
+msgstr ""
+
+#: .\filebrowser\settings.py:123
+msgid "Audio"
+msgstr ""
+
+#: .\filebrowser\settings.py:124
+msgid "Code"
+msgstr ""
+
+#: .\filebrowser\views.py:56 .\filebrowser\views.py:166
+#: .\filebrowser\views.py:221 .\filebrowser\views.py:319
+#: .\filebrowser\views.py:401 .\filebrowser\views.py:462
+msgid "The requested Folder does not exist."
+msgstr ""
+
+#: .\filebrowser\views.py:60
+msgid "Error finding Upload-Folder. Maybe it does not exist?"
+msgstr ""
+
+#: .\filebrowser\views.py:184
+#, python-format
+msgid "The Folder %s was successfully created."
+msgstr ""
+
+#: .\filebrowser\views.py:193
+msgid "Permission denied."
+msgstr ""
+
+#: .\filebrowser\views.py:195
+msgid "Error creating folder."
+msgstr ""
+
+#: .\filebrowser\views.py:202 .\filebrowser\views.py:205
+#: .\filebrowser\templates\filebrowser\index.html.py:48
+msgid "New Folder"
+msgstr ""
+
+#: .\filebrowser\views.py:233
+msgid "Select files to upload"
+msgstr ""
+
+#: .\filebrowser\views.py:237
+#: .\filebrowser\templates\filebrowser\index.html.py:49
+#: .\filebrowser\templates\filebrowser\upload.html.py:111
+msgid "Upload"
+msgstr ""
+
+#: .\filebrowser\views.py:321 .\filebrowser\views.py:403
+#: .\filebrowser\views.py:464
+msgid "The requested File does not exist."
+msgstr ""
+
+#: .\filebrowser\views.py:344
+#, python-format
+msgid "The file %s was successfully deleted."
+msgstr ""
+
+#: .\filebrowser\views.py:360
+#, python-format
+msgid "The folder %s was successfully deleted."
+msgstr ""
+
+#: .\filebrowser\views.py:430
+msgid "Renaming was successful."
+msgstr ""
+
+#: .\filebrowser\views.py:435
+msgid "Error."
+msgstr ""
+
+#: .\filebrowser\views.py:443
+#, python-format
+msgid "Rename \"%s\""
+msgstr ""
+
+#: .\filebrowser\views.py:446
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:86
+msgid "Rename"
+msgstr ""
+
+#: .\filebrowser\views.py:472 .\filebrowser\views.py:475
+#, python-format
+msgid "Versions for \"%s\""
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\makedir.html.py:24
+#: .\filebrowser\templates\filebrowser\rename.html.py:25
+msgid "Please correct the following errors."
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\makedir.html.py:33
+#: .\filebrowser\templates\filebrowser\upload.html.py:101
+msgid ""
+"The Name will be converted to lowercase. Spaces will be replaced with "
+"underscores."
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\makedir.html.py:39
+#: .\filebrowser\templates\filebrowser\rename.html.py:36
+msgid "Submit"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:47
+msgid "BROWSE"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:48
+msgid "An Error occured"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:49
+msgid "Completed"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:50
+msgid "Do you want to replace the file"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:51
+msgid "KB"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:52
+msgid "MB"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:85
+msgid "Help"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:89
+msgid "Allowed"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:95
+msgid "Max. Filesize"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\upload.html.py:109
+msgid "Clear Queue"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\versions.html.py:66
+msgid "Image Version"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\versions.html.py:69
+msgid "Debug"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\versions.html.py:83
+#: .\filebrowser\templates\filebrowser\versions.html.py:95
+#: .\filebrowser\templates\filebrowser\versions.html.py:107
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:11
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:23
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:35
+msgid "Select"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\versions.html.py:118
+msgid "Width"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\versions.html.py:119
+msgid "Height"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:50
+msgid "View Image"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:73
+msgid "Versions"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:92
+msgid "Are you sure you want to delete this file?"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:92
+msgid "Delete File"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:95
+msgid "Are you sure you want to delete this Folder?"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filelisting.html.py:95
+msgid "Delete Folder"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:9
+msgid "By Date"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:11
+msgid "Any Date"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:13
+msgid "Today"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:15
+msgid "Past 7 days"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:17
+msgid "Past 30 days"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:19
+msgid "This year"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:27
+msgid "By Type"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\filter.html.py:29
+msgid "All"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\paginator.html.py:5
+msgid "No Items Found"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\paginator.html.py:11
+#, python-format
+msgid "%(counter)s Item"
+msgid_plural "%(counter)s Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\filebrowser\templates\filebrowser\include\paginator.html.py:26
+msgid "No Items"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:3
+#, python-format
+msgid "1 result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:4
+#: .\filebrowser\templates\filebrowser\include\toolbar.html.py:19
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:5
+msgid "Clear Restrictions"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:7
+#: .\filebrowser\templates\filebrowser\include\toolbar.html.py:16
+msgid "Search"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:24
+#, python-format
+msgid "%(counter)s Item found"
+msgid_plural "%(counter)s Items found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\filebrowser\templates\filebrowser\include\search.html.py:25
+#, python-format
+msgid "%(counter)s Item total"
+msgid_plural "%(counter)s Items total"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:9
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:10
+msgid "Type"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:12
+msgid "Thumbnail"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:14
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:15
+msgid "Filename"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:17
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:18
+msgid "Size"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:20
+#: .\filebrowser\templates\filebrowser\include\tableheader.html.py:21
+msgid "Date"
+msgstr ""
+
+#: .\filebrowser\templates\filebrowser\include\toolbar.html.py:19
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\forum\feeds.py:28
+#, python-format
+msgid "%(title)s's Forum: %(forum)s"
+msgstr ""
+
+#: .\forum\feeds.py:32
+#, python-format
+msgid "%(title)s's Forum"
+msgstr ""
+
+#: .\forum\feeds.py:38
+msgid "Latest forum posts"
+msgstr ""
+
+#: .\forum\forms.py:8 .\forum\models.py:34 .\forum\models.py:163
+#, fuzzy
+msgid "Title"
+msgstr "Сайты"
+
+#: .\forum\forms.py:9 .\forum\forms.py:15 .\forum\models.py:215
+msgid "Body"
+msgstr ""
+
+#: .\forum\forms.py:10 .\forum\forms.py:16
+msgid "Subscribe via email"
+msgstr ""
+
+#: .\forum\models.py:33
+#, fuzzy
+msgid "Group"
+msgstr "Группы пользователей"
+
+#: .\forum\models.py:35
+msgid "Slug"
+msgstr ""
+
+#: .\forum\models.py:36
+msgid "Parent"
+msgstr ""
+
+#: .\forum\models.py:37
+msgid "Description"
+msgstr ""
+
+#: .\forum\models.py:38 .\forum\models.py:184
+msgid "Threads"
+msgstr ""
+
+#: .\forum\models.py:39 .\forum\models.py:166 .\forum\models.py:257
+#, fuzzy
+msgid "Posts"
+msgstr "Сайты"
+
+#: .\forum\models.py:40
+msgid "Ordering"
+msgstr ""
+
+#: .\forum\models.py:91
+msgid "Forum parents"
+msgstr ""
+
+#: .\forum\models.py:122
+msgid "Forums"
+msgstr ""
+
+#: .\forum\models.py:127
+msgid "You must not save a forum in itself!"
+msgstr ""
+
+#: .\forum\models.py:164
+msgid "Sticky?"
+msgstr ""
+
+#: .\forum\models.py:165
+msgid "Closed?"
+msgstr ""
+
+#: .\forum\models.py:167
+#, fuzzy
+msgid "Views"
+msgstr "Сайты"
+
+#: .\forum\models.py:168
+msgid "Latest Post Time"
+msgstr ""
+
+#: .\forum\models.py:183 .\forum\models.py:213 .\forum\models.py:270
+msgid "Thread"
+msgstr ""
+
+#: .\forum\models.py:214 .\forum\models.py:269
+#, fuzzy
+msgid "Author"
+msgstr "Аутентификация"
+
+#: .\forum\models.py:216
+msgid "Body html"
+msgstr ""
+
+#: .\forum\models.py:217
+msgid "Time"
+msgstr ""
+
+#: .\forum\models.py:256
+msgid "Post"
+msgstr ""
+
+#: .\forum\models.py:274
+msgid "Subscription"
+msgstr ""
+
+#: .\forum\models.py:275
+msgid "Subscriptions"
+msgstr ""
+
+#: .\gallery\admin.py:25 .\my_flatpages\admin.py:28 .\news\admin.py:18
+msgid "Meta tags"
+msgstr ""
+
+#: .\gallery\models.py:19
+msgid "date"
+msgstr ""
+
+#: .\gallery\models.py:20 .\gallery\models.py:73
+msgid "is active"
+msgstr ""
+
+#: .\gallery\models.py:24 .\my_flatpages\models.py:20 .\news\models.py:29
+msgid "keywords"
+msgstr ""
+
+#: .\gallery\models.py:57
+msgid "gallery category"
+msgstr ""
+
+#: .\gallery\models.py:58
+msgid "gallery categorys"
+msgstr ""
+
+#: .\gallery\models.py:69
+msgid "category"
+msgstr ""
+
+#: .\gallery\models.py:72
+msgid "is main"
+msgstr ""
+
+#: .\gallery\models.py:97
+msgid "gallery photo"
+msgstr ""
+
+#: .\gallery\models.py:98
+msgid "gallery photos"
+msgstr ""
+
+#: .\my_flatpages\__init__.py:5
+msgid "My_Flatpages"
+msgstr ""
+
+#: .\my_flatpages\admin.py:12 .\my_flatpages\models.py:10
+msgid "URL"
+msgstr ""
+
+#: .\my_flatpages\admin.py:13
+msgid ""
+"Example: '/about/contact/'. Make sure to have leading and trailing slashes."
+msgstr ""
+
+#: .\my_flatpages\admin.py:15
+msgid ""
+"This value must contain only letters, numbers, dots, underscores, dashes, "
+"slashes or tildes."
+msgstr ""
+
+#: .\my_flatpages\models.py:12
+msgid "content"
+msgstr ""
+
+#: .\my_flatpages\models.py:13
+msgid "enable comments"
+msgstr ""
+
+#: .\my_flatpages\models.py:14
+msgid "template name"
+msgstr ""
+
+#: .\my_flatpages\models.py:15
+msgid ""
+"Example: 'flatpages/contact_page.html'. If this isn't provided, the system "
+"will use 'flatpages/default.html'."
+msgstr ""
+
+#: .\my_flatpages\models.py:16
+msgid "registration required"
+msgstr ""
+
+#: .\my_flatpages\models.py:16
+msgid "If this is checked, only logged-in users will be able to view the page."
+msgstr ""
+
+#: .\my_flatpages\models.py:17
+#, fuzzy
+msgid "sites"
+msgstr "Сайты"
+
+#: .\my_flatpages\models.py:24
+msgid "flat page"
+msgstr ""
+
+#: .\my_flatpages\models.py:25
+msgid "flat pages"
+msgstr ""
+
+#: .\news\models.py:22
+msgid "announcement"
+msgstr ""
+
+#: .\news\models.py:24
+msgid "date_created"
+msgstr ""
+
+#: .\news\models.py:60
+msgid "news_article"
+msgstr ""
+
+#: .\news\models.py:61
+msgid "news"
+msgstr ""
+
+#: .\paginator\templatetags\paginate.py:92
+msgid "Error token tag \"get_url\""
+msgstr ""
+
+#: .\perm\__init__.py:5
+msgid "Perm"
+msgstr ""
+
+#: .\perm\__init__.py:7
+msgid "Can add"
+msgstr ""
+
+#: .\perm\__init__.py:8
+msgid "Can change"
+msgstr ""
+
+#: .\perm\__init__.py:9
+msgid "Can delete"
+msgstr ""
+
+#: .\perm\admin.py:29
+msgid "Personal info"
+msgstr ""
+
+#: .\perm\admin.py:30
+msgid "Important dates"
+msgstr ""
+
+#: .\perm\admin.py:31
+msgid "Permissions"
+msgstr ""
+
+#: .\project\__init__.py:5
+msgid "Project"
+msgstr ""
+
+#: .\pymorphy\tests.py:111
+msgid "конь"
+msgstr ""
+
+#: .\registration\forms.py:41
+#, fuzzy
+msgid "Username"
+msgstr "Пользователи"
+
+#: .\registration\forms.py:44
+msgid "email address"
+msgstr ""
+
+#: .\registration\forms.py:46
+msgid "Password"
+msgstr ""
+
+#: .\registration\forms.py:48
+msgid "password (again)"
+msgstr ""
+
+#: .\registration\forms.py:62
+msgid "This username is already taken. Please choose another."
+msgstr ""
+
+#: .\registration\forms.py:74
+msgid "You must type the same password each time"
+msgstr ""
+
+#: .\registration\forms.py:103
+msgid "I have read and agree to the Terms of Service"
+msgstr ""
+
+#: .\registration\forms.py:120
+msgid ""
+"This email address is already in use. Please supply a different email "
+"address."
+msgstr ""
+
+#: .\registration\forms.py:146
+msgid ""
+"Registration using free email addresses is prohibited. Please supply a "
+"different email address."
+msgstr ""
+
+#: .\registration\models.py:215
+#, fuzzy
+msgid "user"
+msgstr "Пользователи"
+
+#: .\registration\models.py:216
+msgid "activation key"
+msgstr ""
+
+#: .\registration\models.py:221
+msgid "registration profile"
+msgstr ""
+
+#: .\registration\models.py:222
+msgid "registration profiles"
+msgstr ""
+
+#: .\sorl\thumbnail\fields.py:47
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\sorl\thumbnail\admin\compat.py:56
+msgid "Clear image"
+msgstr ""
+
+#: .\tinymce\views.py:67
+msgid "Error running spellchecker"
+msgstr ""
+
+#: .\yandex_map\__init__.py:5
+msgid "Yandex_Map"
+msgstr ""
+
+#: .\yandex_map\models.py:16
+msgid "fid"
+msgstr ""
+
+#: .\yandex_map\models.py:19
+msgid "width px"
+msgstr ""
+
+#: .\yandex_map\models.py:20
+msgid "height px"
+msgstr ""
+
+#: .\yandex_map\models.py:22
+msgid "map coord x"
+msgstr ""
+
+#: .\yandex_map\models.py:23
+msgid "map coord y"
+msgstr ""
+
+#: .\yandex_map\models.py:24
+msgid "placemark coord x"
+msgstr ""
+
+#: .\yandex_map\models.py:25
+msgid "placemark coord y"
+msgstr ""
+
+#: .\yandex_map\models.py:26
+msgid "zoom"
+msgstr ""
+
+#: .\yandex_map\models.py:38
+msgid "map"
+msgstr ""
+
+#: .\yandex_map\models.py:39
+msgid "maps"
+msgstr ""
+
+#: .\yandex_map\templatetags\yandex_map_tags.py:32
+msgid "Error token tag \"get_yandex_map\""
+msgstr ""
+
+#~ msgid "TMce"
+#~ msgstr "Тестовое приложение"

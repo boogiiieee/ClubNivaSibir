@@ -1,0 +1,36 @@
+{% extends "profile.html" %}
+{% load i18n %}
+
+{% block subcontent %}
+	{% if thread_list %}
+		<table class="green table table-bordered">
+			<thead>
+				<tr>
+					<th colspan="2">Тема</th>
+					<th>{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</th>
+					<th width="50">Сообщений</th>
+					<th width="50">Просмотры</th>
+					<th width="220">Последнее сообщение</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for t in thread_list %}
+					<tr>
+						<td width="18">{% if t.sticky %}<img src="/media/img/sticky_read.gif" title="Прилеплена">{% else %}<img src="/media/img/topic_read.gif">{% endif %}</td>
+						<td><a href='{{ t.get_absolute_url }}'>{{ t.title|escape }}</a>{% if t.closed %} (Тема закрыта){% endif %}</td>
+						<td><img width="30px" src="/media/img/forum_read_subforum.gif"> <a href='{{ t.forum.get_absolute_url }}'>{{ t.forum.title }}</a></td>
+						<td style="text-align:center;" width="50"><small>{{ t.posts }}</small></td>
+						<td style="text-align:center;" width="50"><small>{{ t.views }}</small></td>
+						{% with t.thread_latest_post as latest_post %}
+							<td  style="text-align:center;" width="220"><small>{{ latest_post.time|timesince }} назад<br/><span style="color:#0088cc;">{{ latest_post.author.get_full_name|default:latest_post.author.username }}&nbsp;</span></small><a href='{{ latest_post.get_absolute_url }}'><img src="/media/img/icon_topic_latest.gif" width="18" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a></td>
+						{% endwith %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		{% include "paginate.html" %}
+	{% else %}
+		<h2>У Вас нет тем</h2>
+	{% endif %}
+{% endblock %}

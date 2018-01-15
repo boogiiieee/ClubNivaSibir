@@ -1,0 +1,104 @@
+{% extends "forum_base.html" %}
+{% load i18n thumbnail forum_tags markitup_tags like_tags %}
+{% block title %}{{ thread.title|escape }} ({{ forum.title }}){% endblock %}
+
+{% block pagetitle %}
+	<div class="row">
+		<div class="span12">
+			<h1>{{ forum.title }} &raquo; {{ thread.title|escape }}</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li><a href="{% if flag_partner %}{% url forum_index_partner %}{% else %}{% url forum_index %}{% endif%}">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</a> <span class="divider">/</span></li>
+		{% for title, url in thread.forum.get_url_name %}
+			<li><a href='{{ url }}'>{{ title }}</a> <span class="divider">/</span></li>
+		{% endfor %}
+		<li class="active">{{ thread.title|escape }}</li>
+	</ul>
+{% endblock %}
+
+{% block subcontent %}
+	<table class="table table-bordered green v_a_t">
+		<tr>
+			<th>Автор</th>
+			<th colspan="2">Сообщение</th>
+		</tr>
+		{% for post in post_list %}
+			<tr id="post{{ post.id }}">
+				<td width="200" class="text_c">
+					<strong><span style="color:#0088cc;">{{ post.author.get_full_name|default:post.author.username }}</span></strong>
+				</td>
+				<td class="small text_l">
+					<a href="#post{{ post.id }}"><img style="margin-top:-3px;" src="/media/img/icon_post_target.gif" height="11"></a>&nbsp;Добавлено: {{ post.time|date:"d M Y, H:i" }}
+					{% if not thread.closed %}{% ifequal request.user.id post.author.id %}<a class="edit-icon" href="{{ post.get_post_url }}" title="Редактировать сообщение"></a>{% endifequal %}{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<td width="200">
+					<div>
+						<div>
+							<div class="text_c">
+								{% if post.author.get_profile.file %}
+									{% thumbnail post.author.get_profile.file "150" upscale=False as im %}
+										<img class=" margin10b" src="{{ im.url }}" alt="{{ item.get_title }}">
+									{% endthumbnail %}
+								{% endif %}
+							</div>
+							<div class="small"><strong>Зарегистрирован: </strong>{{ post.author.date_joined|date:"d.m.Y" }}</div>
+							{% if post.author.get_profile.car %}
+								<div class="small"><strong>Марка машины: </strong>{{ post.author.get_profile.car }}</div>
+							{% endif %}
+						</div>
+						
+						{% if not post.author.is_staff %}
+							{% if thread.id == 28 or thread.id == 29 or thread.id == 30 %}
+								<br>
+								<div class="well" style="padding:0 10px 10px 10px">
+									<h5>Голосование</h5>
+									{% render_like for post thread.id %}
+								</div>
+							{% endif %}
+						{% endif %}
+					</div>
+				</td>
+				<td>
+					<div>{{ post.body|render_markup|safe }}</div>
+					{% if post.get_files %}
+						<div>
+							{% for file in post.get_files %}
+								<a class="highslide" onclick="return hs.expand(this)" href="{{ file.file.url }}">
+									{% thumbnail file.file "80x80" crop="center" as im %}
+										<img src="{{ im.url }}" />
+									{% endthumbnail %}
+								</a>
+							{% endfor %}
+						</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	{% include "paginate.html" %}
+
+	{% if request.user.is_authenticated %}
+		<ul class="nav nav-pills">
+			<li><a class="btn btn-info" href="{% if flag_partner %}{% url forum_subscriptions_partner %}{% else %}{% url forum_subscriptions %}{% endif%}?next={{ request.path }}">Подписки</a></li>
+		</ul>
+	{% endif %}
+
+	{% if thread.closed %}
+		<p><i class="icon icon-ok-circle"></i> Тема закрыта.</p>
+	{% else %}
+		{% if user.is_authenticated %}
+			<h2>Написать сообщение</h2>
+			<form class="form-horizontal" method='post' action='reply/' enctype='multipart/form-data'>{% csrf_token %}
+				{% include "forform.html" %}
+			</form>
+		{% endif %}
+	{% endif %}
+	
+{% endblock %}

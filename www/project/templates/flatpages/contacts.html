@@ -1,0 +1,36 @@
+{% extends "default.html" %}
+{% load yandex_map_tags userphoto_tags thumbnail %}
+
+{% block content %}
+	<div class="row">
+		{% get_userphoto 'users' %}
+		{% if users %}
+			<div class="span6">
+				<h3>Наши сотрудники</h3>
+				{% for item in users %}
+					<div class="media">
+						<a class="thumbnail pull-left">
+							{% if item.get_image %}
+								{% thumbnail item.get_image "140x140" as im %}
+									<img class="media-object" src="{{ im.url }}">
+								{% endthumbnail %}
+							{% else %}
+								<img class="media-object" src="{{ MEDIA_URL }}img/no_image.png">
+							{% endif %}
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading">{{ item.get_username }}</h4>
+							{% if item.get_text %}<div>{{ item.get_text }}</div>{% endif %}
+							{% if item.get_phone %}<div><strong>{{ item.get_phone }}</strong></div>{% endif %}
+							{% if item.get_email %}<div><a href="mailto:{{ item.get_email }}"><strong>{{ item.get_email }}</strong></a></div>{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+		<div class="span6">
+			<h3>Мы на карте</h3>
+			{% get_yandex_map 1 %}
+		</div>
+	</div>
+{% endblock %}

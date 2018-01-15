@@ -1,0 +1,34 @@
+{% extends "profile.html" %}
+{% load i18n markitup_tags %}
+
+{% block subcontent %}
+	{% if post_list %}
+		<table class="green v_a_t table table-bordered">
+			<thead>
+				<tr>
+					<th>Дата</th>
+					<th>Автор</th>
+					<th>Сообщение</th>
+					<th width="150px">Тема</th>
+					<th width="150px">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for post in post_list %}
+					<tr id="post{{ post.id }}">
+						<td width="50" class="small" style="text-align:center">{{ post.time|date:"d b, H:i" }}</td>
+						<td width="50">
+							<strong><span style="color:#0088cc;">{{ post.author.get_full_name|default:post.author.username }}</span></strong><br/><small></small>
+						</td>
+						<td>{{ post.body|render_markup|safe }}</td>
+						<td class="small">{% if post.thread.sticky %}<img src="/media/img/sticky_read.gif" title="Прилеплена">{% else %}<img src="/media/img/topic_read.gif">{% endif %} <a href='{{ post.thread.get_absolute_url }}'>{{ post.thread.title }}</a></td>
+						<td class="small"><img width="30px" src="/media/img/forum_read_subforum.gif"> <a href='{{ post.thread.forum.get_absolute_url }}'>{{ post.thread.forum.title }}</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% include "paginate.html" %}
+	{% else %}
+		<h2>У Вас нет сообщений</h2>
+	{% endif %}
+{% endblock %}

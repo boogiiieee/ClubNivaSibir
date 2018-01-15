@@ -1,0 +1,74 @@
+{% extends "profile.html" %}
+{% load i18n markitup_tags thumbnail markup markdown_video %}
+
+{% block title %}Личные сообщения{% endblock %}
+
+{% block flatpage %}<h1>Личные сообщения</h1>{% endblock %}
+
+{% block subcontent %}
+	<ul class="breadcrumb">
+		<li><a href="/accounts/profile/">Профиль</a> <span class="divider">/</span></li>
+		<li><a href="{% url user_msg_dialog %}">Диалоги</a> <span class="divider">/</span></li>
+		<li class="active">{{ u.get_full_name|default:u.username }}</li>
+	</ul>
+	
+	{% if messages_list %}
+		{% if messages_list|length > 5 %}
+			<h3>Написать сообщение</h3>
+			<form class="form-horizontal" method="post" action=""  enctype='multipart/form-data'>{% csrf_token %}
+				{% include "forform.html" %}
+			</form>
+		{% endif %}
+		
+		<table class="green v_a_t table table-bordered">
+			<thead>
+				<tr>
+					<th width="200">Пользователь</th>
+					<th>Сообщение</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for message in messages_list %}
+					<tr id="message{{ message.id }}">
+						<td width="200" class="text_c">
+							<strong><span style="color:#0088cc;">{{ message.from_user.get_full_name|default:message.from_user.username }}</span></strong>
+						</td>
+						<td class="small text_l">
+							Добавлено: {{ message.created_at|date:"d M Y, H:i" }}
+						</td>
+					</tr>
+					<tr>
+						<td width="200">
+							<div>
+								<div class="text_c">
+									{% if message.from_user.get_profile.file %}
+										{% thumbnail message.from_user.get_profile.file "150" upscale=False as im %}
+											<img class=" margin10b" src="{{ im.url }}">
+										{% endthumbnail %}
+									{% endif %}
+								</div>
+								<div class="small"><strong>Зарегистрирован: </strong>{{ message.from_user.date_joined|date:"d.m.Y" }}</div>
+								{% if message.from_user.get_profile.car %}
+									<div class="small"><strong>Марка машины: </strong>{{ message.from_user.get_profile.car }}</div>
+								{% endif %}
+							</div>
+						</td>
+						<td>
+							<div>{{ message.text|markdown:"safe"|video|safe }}</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% include "paginate.html" %}
+		
+		{% if messages_list|length <= 5 %}
+			<h3>Написать сообщение</h3>
+			<form class="form-horizontal" method="post" action=""  enctype='multipart/form-data'>{% csrf_token %}
+				{% include "forform.html" %}
+			</form>
+		{% endif %}
+	{% else %}
+		<h2>У Вас нет сообщений</h2>
+	{% endif %}
+{% endblock %}

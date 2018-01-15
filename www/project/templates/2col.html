@@ -1,0 +1,21 @@
+{% extends "default.html" %}
+
+{% block banners %}
+{% endblock %}
+{% block content_all %}
+	{% include "messages.html" %}
+	{% block flatpage %}
+		<div class="row">
+			<div class="span12">
+				{% if request.flatpage %}
+					<h1>{{ request.flatpage.get_title }}</h1>
+					{{ request.flatpage.get_content|safe }}
+				{% endif %}
+			</div>
+		</div>
+	{% endblock %}
+	<div class="row">
+		<div class="span9">{% block left %}{% endblock %}</div>
+		<div class="span3">{% block right %}{% endblock %}</div>
+	</div>
+{% endblock %}	

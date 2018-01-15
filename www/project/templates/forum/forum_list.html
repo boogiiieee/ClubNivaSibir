@@ -1,0 +1,73 @@
+{% extends "forum_base.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li class="active">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</li>
+	</ul>
+{% endblock %}
+	
+{% block subcontent %}
+	<table class="green table table-bordered">
+		<tr>
+			<th colspan="2">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</th>
+			<th width="50">Темы</th>
+			<th width="50">Сообщения</th>
+			<th width="50">Просмотры</th>
+			<th>Последнее сообщение</th>
+		</tr>
+		{% for forum in object_list %}
+			<tr>
+				<td width="35"><img src="/media/img/forum_read_subforum.gif"></td>
+				<td style="vertical-align:middle;">
+					<strong><a href='{{ forum.get_absolute_url }}'>{{ forum.title }}</a></strong> 
+					<p><small>{{ forum.description }}</small></p>
+					{% if forum.get_children_forum %}
+						<small>
+							<strong>Подфорумы:&nbsp;</strong>
+							{% for i in forum.get_children_forum %}
+								<a href="{{ i.get_absolute_url }}">{{ i }}</a>{% if not forloop.last %},&nbsp;{% endif%}
+							{% endfor %}
+						</small>
+					{% else %}
+						{% if forum.get_children_thread %}
+							<small>
+								<strong>Темы:&nbsp;</strong>
+								{% for i in forum.get_children_thread %}
+									<a href="{{ i.get_absolute_url }}">{{ i }}</a>{% if not forloop.last %},&nbsp;{% endif%}
+								{% endfor %}
+							</small>
+						{% endif %}
+					{% endif %}
+					
+				</td>
+				<td style="text-align:center;">
+					{{ forum.get_statistic.threads|default:"0" }}
+				</td>
+				<td style="text-align:center;">
+					{{ forum.get_statistic.posts|default:"0" }}
+				</td>
+				<td style="text-align:center;">
+					{{ forum.get_statistic.views|default:"0" }}
+				</td>
+				<td style="text-align:center;">
+					<small>
+						{% if forum.get_statistic.latest_post %}
+							{{ forum.get_statistic.latest_post.time|date:"d b Y, H:i" }}<br/>
+							<span style="color:#0088cc;">{% if forum.get_statistic.latest_post.author %}{{ forum.get_statistic.latest_post.author.get_full_name|default:forum.get_statistic.latest_post.author.username }}{% endif %}&nbsp;</span>
+							<a href='{{ forum.get_statistic.latest_post.get_absolute_url }}'><img src="/media/img/icon_topic_latest.gif" width="18" height="9" alt="Перейти к последнему сообщению" title="Перейти к последнему сообщению"></a>
+						{% else %}
+							<small>нет сообщений</small>
+						{% endif %}
+					</small>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	{% if request.user.is_authenticated %}
+		<ul class="nav nav-pills">
+			<li><a class="btn btn-info" href="{% if flag_partner %}{% url forum_subscriptions_partner %}{% else %}{% url forum_subscriptions %}{% endif%}">Подписки</a></li>
+		</ul>
+	{% endif %}
+{% endblock %}

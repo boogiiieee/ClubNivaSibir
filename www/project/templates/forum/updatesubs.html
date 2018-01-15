@@ -1,0 +1,59 @@
+{% extends "forum_base.html" %}
+{% load i18n %}
+
+{% block title %}Подписки{% endblock %}
+
+{% block pagetitle %}
+	<div class="row">
+		<div class="span12">
+			<h1>Подписки</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li><a href="{% if flag_partner %}{% url forum_index_partner %}{% else %}{% url forum_index %}{% endif%}">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</a> <span class="divider">/</span></li>
+		<li class="active">Подписки</li>
+	</ul>
+{% endblock %}
+
+{% block subcontent %}
+	{% if user.is_authenticated %}
+		{% if not subs %}
+			<h2>У Вас нет подписок.</h2>
+		{% else %}
+			<form class="form-horizontal" method='post' action='./'>{% csrf_token %}
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</th>
+							<th>Тема</th>
+							<th width="50">Подписка</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for s in subs %}
+							<tr>
+								<td><img width="30px" src="/media/img/forum_read_subforum.gif"> <a href='{{ s.thread.forum.get_absolute_url }}'>{{ s.thread.forum.title }}</a></td>
+								<td>{% if s.thread.sticky %}<img src="/media/img/sticky_read.gif" title="Прилеплена">{% else %}<img src="/media/img/topic_read.gif">{% endif %} <a href='{{ s.thread.get_absolute_url }}'>{{ s.thread.title|escape }}</a>{% if s.thread.closed %} (Закрыта){% endif %}</td>
+								<td width="50"><input type='checkbox' checked='checked' name='{{ s.thread.id }}' /></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<button type="submit" class="btn" name="updatesubs">Сохранить</button>
+			</form>
+		{% endif %}
+
+		{% if next %}
+			<div class="pagination pagination-centered">
+				<ul>
+					<li><a href="{{ next }}">« Вернуться назад</a></li>
+				</ul>
+			</div>
+		{% endif %}
+	{% else %}
+		<h2>Раздел доступен только для авторизованных пользователей!</h2>
+	{% endif %}
+{% endblock %}

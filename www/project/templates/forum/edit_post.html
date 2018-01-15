@@ -1,0 +1,65 @@
+{% extends "forum_base.html" %}
+{% load i18n thumbnail forum_tags %}
+{% block title %}{{ thread.title|escape }} (Редактирование сообщения){% endblock %}
+
+{% block pagetitle %}
+	<div class="row">
+		<div class="span12">
+			<h1>{{ forum.title }} &raquo; {{ thread.title|escape }} &raquo; Редактирование сообщения</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+	<ul class="breadcrumb">
+		<li><a href="{% if flag_partner %}{% url forum_index_partner %}{% else %}{% url forum_index %}{% endif%}">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</a> <span class="divider">/</span></li>
+		{% for title, url in thread.forum.get_url_name %}
+			<li><a href='{{ url }}'>{{ title }}</a> <span class="divider">/</span></li>
+		{% endfor %}
+		<li><a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> <span class="divider">/</span></li>
+		<li class="active">Редактирование сообщения</li>
+	</ul>
+{% endblock %}
+
+{% block subcontent %}
+	<table class="table table-bordered green v_a_t">
+		<tr>
+			<th>Автор</th>
+			<th colspan="2">Сообщение</th>
+		</tr>
+			<tr id="post{{ post.id }}">
+				<td width="200" class="text_c">
+					<strong><span style="color:#0088cc;">{{ post.author.get_full_name|default:post.author.username }}</span></strong>
+				</td>
+				<td class="small text_r">
+					&nbsp;Добавлено: {{ post.time|date:"d M Y, H:i" }}
+				</td>
+			</tr>
+			<tr>
+				<td width="200">
+					<div class="text_c">
+						{% if post.author.get_profile.file %}
+							{% thumbnail post.author.get_profile.file "150" upscale=False as im %}
+								<img class=" margin10b" src="{{ im.url }}" alt="{{ item.get_title }}">
+							{% endthumbnail %}
+						{% endif %}
+					</div>
+					<div class="small"><strong>Зарегистрирован: </strong>{{ post.author.date_joined|date:"d.m.Y" }}</div>
+					{% if post.author.get_profile.car %}
+						<div class="small"><strong>Марка машины: </strong>{{ post.author.get_profile.car }}</div>
+					{% endif %}
+				</td>
+				<td>
+					{{ form.media }}
+					<form class="form-horizontal" method='post' action=''>{% csrf_token %}
+						{{ form.body }}
+						<div class="control-group">
+							<button type="submit" class="btn">Сохранить</button>
+						</div>
+					</form>
+					
+				</td>
+			</tr>
+	</table>
+	
+{% endblock %}

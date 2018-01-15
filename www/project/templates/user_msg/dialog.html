@@ -1,0 +1,67 @@
+{% extends "profile.html" %}
+{% load i18n markitup_tags thumbnail user_msg_tags markup markdown_video %}
+
+{% block subcontent %}
+	<ul class="breadcrumb">
+		<li><a href="/accounts/profile/">Профиль</a> <span class="divider">/</span></li>
+		<li class="active">Диалоги</li>
+	</ul>
+	
+	{% if dialog_list %}
+		<table class="green v_a_t table table-bordered">
+			<thead>
+				<tr>
+					<th width="200">Пользователь</th>
+					<th>Последнее сообщение</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for dialog in dialog_list %}
+					<tr id="dialog{{ dialog.id }}">
+						<td width="200" class="text_c">
+							<strong><span style="color:#0088cc;">{{ dialog.get_full_name|default:dialog.username }}</span></strong>
+						</td>
+						<td class="small text_l">
+							{% if request.user|count_messages_from_user:dialog %}
+								<i class="icon-envelope tooltip_btn count_new_messages" rel="tooltip" title="У Вас есть непрочитанные сообщения"></i>
+							{% endif %}
+							{% with request.user|get_last_messages_from_user:dialog as last_msg %}
+								Последнее сообщение от пользователя {{ last_msg.from_user.get_full_name|default:last_msg.from_user.username }}: {{ last_msg.created_at|date:"d M Y, H:i" }}
+							{% endwith %}
+						</td>
+					</tr>
+					<tr>
+						<td width="200">
+							<div>
+								<div class="text_c">
+									{% if dialog.get_profile.file %}
+										{% thumbnail dialog.get_profile.file "150" upscale=False as im %}
+											<img class=" margin10b" src="{{ im.url }}">
+										{% endthumbnail %}
+									{% endif %}
+								</div>
+								<div class="small"><strong>Зарегистрирован: </strong>{{ dialog.date_joined|date:"d.m.Y" }}</div>
+								{% if dialog.get_profile.car %}
+									<div class="small"><strong>Марка машины: </strong>{{ dialog.get_profile.car }}</div>
+								{% endif %}
+							</div>
+						</td>
+						<td>
+							<p>
+								{% with request.user|get_last_messages_from_user:dialog as last_msg %}
+									{{ last_msg.text|markdown:"safe"|video|safe }}
+								{% endwith %}
+							</p>
+							<small>
+								<a href="{% url user_msg_messages dialog_id=dialog.pk %}">Перейти к диалогу &raquo;</a>
+							</small>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% include "paginate.html" %}
+	{% else %}
+		<h2>У Вас нет сообщений</h2>
+	{% endif %}
+{% endblock %}

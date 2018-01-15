@@ -1,0 +1,64 @@
+{% extends "default.html" %}
+{% load i18n %}
+
+{% block extra_media %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/highslide/highslide-with-gallery.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/highslide/highslide.css" />
+	<script>
+		$(function() { 		
+			hs.graphicsDir = '{{ MEDIA_URL }}js/highslide/graphics/';
+			hs.align = 'center';
+			hs.transitions = ['expand', 'crossfade'];
+			hs.outlineType = 'rounded-white';
+			hs.fadeInOut = true;
+			hs.captionEval = 'this.thumb.alt';
+			//hs.wrapperClassName = 'dark';
+			
+			hs.lang = {
+			   cssDirection:     'ltr',
+			   loadingText :     'Загрузка...',
+			   loadingTitle :    'Щелкните, чтобы закрыть',
+			   focusTitle :      'Щелкните, чтобы перенести вперед',
+			   fullExpandTitle : 'Натуральный размер (f)',
+			   fullExpandText :  'Исходный размер',
+			   creditsText :     '',
+			   creditsTitle :    '',
+			   previousText :    'Назад',
+			   previousTitle :   'Назад (arrow left)',
+			   nextText :        'Вперед',
+			   nextTitle :       'Вперед (arrow right)',
+			   moveTitle :       'Переместить',
+			   moveText :        'Переместить',
+			   closeText :       'Закрыть',
+			   closeTitle :      'Закрыть (esc)',
+			   resizeTitle :     'Изменить размер',
+			   playText :        'Запустить',
+			   playTitle :       'Запустить слайдшоу (spacebar)',
+			   pauseText :       'Остановить',
+			   pauseTitle :      'Остановить слайдшоу (spacebar)',   
+			   number :          'Изображение %1 из %2',
+			   restoreTitle :    'Щелкните, чтобы закрыть изображение.'
+			};
+			
+			hs.addSlideshow({
+				interval: 5000,
+				repeat: false,
+				useControls: true,
+				fixedControls: 'fit',
+				overlayOptions: {
+					opacity: 0.75,
+					position: 'bottom center',
+					hideOnMouseOut: true
+				}
+			});
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+	{% block pagetitle %}{% endblock %}
+	
+	{% block breadcrumbs %}{% endblock %}
+	
+	{% block subcontent %}{% endblock %}
+{% endblock %}

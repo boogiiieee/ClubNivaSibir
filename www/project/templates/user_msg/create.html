@@ -1,0 +1,19 @@
+{% extends "profile.html" %}
+{% load i18n markitup_tags %}
+
+{% block subcontent %}
+	<ul class="breadcrumb">
+		<li><a href="/accounts/profile/">Профиль</a> <span class="divider">/</span></li>
+		<li><a href="{% url user_msg_dialog %}">Диалоги</a> <span class="divider">/</span></li>
+		<li class="active">Новое сообщение</li>
+	</ul>
+	
+	<div class="row">
+		<div class="span12">
+			<h3>Личное сообщение для пользователя {{ for_user.get_full_name|default:for_user.username }}</h3>
+			<form class="form-horizontal" method="post" action=""  enctype='multipart/form-data'>{% csrf_token %}
+				{% include "forform.html" %}
+			</form>
+		</div>
+	</div>
+{% endblock %}

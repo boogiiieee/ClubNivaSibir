@@ -1,0 +1,119 @@
+{% extends "2col.html" %}
+{% load thumbnail banners_tags news_tags %}
+
+{% block banners %}
+	{% get_banners_list %}
+	{% if banners_list %}
+		<div class="carousel-wrapper">
+			<div id="myCarousel" class="carousel slide visible-desktop">
+				<div class="carousel-inner">
+					{% for banner in banners_list %}
+						<div class="{% if forloop.first %}active {% endif %}item">
+							{% thumbnail banner.get_image "1170x400" crop="center" format="PNG" as im %}
+								<img src="{{ im.url }}" alt="{{ banner.get_title }}">
+							{% endthumbnail %}
+							<div class="container">
+								<div class="carousel-caption">
+									<h1>{{ banner.get_title }}</h1>
+									{% if banner.get_description %}
+										<p class="lead">{{ banner.get_description }}</p>
+									{% endif %}
+									{% if banner.get_url %}
+										<a class="btn btn-large btn-primary" href="{{ banner.get_url }}">Подробнее</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block flatpage %}
+	<h1>Новости</h1>
+{% endblock %}
+
+{% block left %}
+	{% get_news_list %}
+	{% if news_list %}
+		<div class="row">
+			<div class="span9">
+				{% for item in news_list %}
+					<div class="media">
+							<div class="date">
+								{{ item.created_at|date:"d" }}<br/>
+								<small>{{ item.created_at|date:"M" }}</small>
+							</div>
+							<div class="media-body">
+								{% if item.get_image %}
+									<a class="margin_b" href="{{ item.get_item_url }}">
+										{% thumbnail item.get_image "600" upscale=False as im %}
+											<img class="media-object" src="{{ im.url }}" alt="{{ item.get_title }}">
+										{% endthumbnail %}
+									</a>
+								{% endif %}
+							
+								<h4 class="media-heading"><a href="{{ item.get_item_url }}">{{ item.get_title }}</a></h4>
+								<div>{{ item.get_announcement|safe }}</div>
+								<div class="clr"></div>
+								<a class="link_more pull-right" href="{{ item.get_item_url }}">Читать далее »</a>
+							</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}	
+{% block right %}
+<!-- 	<div class="row" style="text-align:center; margin-bottom:20px"><div id="banner"></div></div>
+	<script>
+		params = {wmode:"opaque", bgcolor:"#ffffff"},
+		swfobject.embedSWF("/media/flash/200x400stokoney.swf", "banner", "220", "400", "9.0.0", false, false, params, false);
+	</script> -->
+		<div class="row" style="text-align:center;"><div id="banner1"></div></div>
+	<script>
+		params = {wmode:"opaque", bgcolor:"#ffffff"},
+		swfobject.embedSWF("/media/flash/rezina.swf", "banner1", "220", "128", "9.0.0", false, false, params, false);
+	</script>
+	<div class="row" style="text-align:center; margin-top:20px;">
+		<a target="_blank" href="http://stokoney.ru/"><img width="111px" src="/media/img/logo-stokoney.png" alt="Автоцентр «Сто Коней»" width="281" height="101"></a>
+	</div>
+	{% if user_list %}
+		<div class="row small" style="text-align:center; margin-top:20px;">
+			<div class="uchastniki">
+				<h3>Клуб Нива Сибирь</h3>
+				<div class="col">{{ count_user }} участников</div>
+				{% for u in user_list %}
+					<div class="user">
+						<div class="user_foto">
+							{% if u.get_profile.file %}
+							{% thumbnail u.get_profile.file "50x50" crop="center" as im %}
+								<img src="{{ im.url }}" alt="{{ item.get_title }}">
+							{% endthumbnail %}
+							{% else %}
+								<img src="{{ MEDIA_URL }}img/no_image_50x50.png" alt="{{ item.get_title }}">
+							{% endif%}
+						</div>
+						<div class="user_name">
+							{{ u.first_name|default:u.username }}
+						</div>
+					</div>
+				{% endfor %}
+				<div class="clr"></div>
+				<h3 class="bt"><a href="/accounts/register/">Присоединиться</a></h3>
+			</div>
+		</div>
+	{% endif %}
+	<div class="row" style="text-align:center; margin-top:20px;">
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?98"></script>
+		<!-- VK Widget -->
+		<div id="vk_groups" style="margin:0 auto; border: 1px solid #5B7FA6;"></div>
+		<script type="text/javascript">
+		VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 49705850);
+		</script>	
+	</div>
+{% endblock %}		

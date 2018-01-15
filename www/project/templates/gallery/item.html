@@ -1,0 +1,97 @@
+{% extends "default.html" %}
+{% load thumbnail %}
+
+{% block title %}{{ item.get_title }}{% endblock %}
+{% block description %}{{ item.get_description }}{% endblock %}
+{% block keywords %}{{ item.get_keywords }}{% endblock %}
+
+{% block extra_media %}
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/highslide/highslide-with-gallery.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/highslide/highslide.css" />
+
+	<script>
+		$(function() { 		
+			hs.graphicsDir = '{{ MEDIA_URL }}js/highslide/graphics/';
+			hs.align = 'center';
+			hs.transitions = ['expand', 'crossfade'];
+			hs.outlineType = 'rounded-white';
+			hs.fadeInOut = true;
+			hs.captionEval = 'this.thumb.alt';
+			//hs.wrapperClassName = 'dark';
+			
+			hs.lang = {
+			   cssDirection:     'ltr',
+			   loadingText :     'Загрузка...',
+			   loadingTitle :    'Щелкните, чтобы закрыть',
+			   focusTitle :      'Щелкните, чтобы перенести вперед',
+			   fullExpandTitle : 'Натуральный размер (f)',
+			   fullExpandText :  'Исходный размер',
+			   creditsText :     '',
+			   creditsTitle :    '',
+			   previousText :    'Назад',
+			   previousTitle :   'Назад (arrow left)',
+			   nextText :        'Вперед',
+			   nextTitle :       'Вперед (arrow right)',
+			   moveTitle :       'Переместить',
+			   moveText :        'Переместить',
+			   closeText :       'Закрыть',
+			   closeTitle :      'Закрыть (esc)',
+			   resizeTitle :     'Изменить размер',
+			   playText :        'Запустить',
+			   playTitle :       'Запустить слайдшоу (spacebar)',
+			   pauseText :       'Остановить',
+			   pauseTitle :      'Остановить слайдшоу (spacebar)',   
+			   number :          'Изображение %1 из %2',
+			   restoreTitle :    'Щелкните, чтобы закрыть изображение.'
+			};
+			
+			hs.addSlideshow({
+				interval: 5000,
+				repeat: false,
+				useControls: true,
+				fixedControls: 'fit',
+				overlayOptions: {
+					opacity: 0.75,
+					position: 'bottom center',
+					hideOnMouseOut: true
+				}
+			});
+		});
+	</script>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="span12">
+			<h1>{{ cat.get_title }}</h1>
+		</div>
+	</div>
+			
+	{% if item_list %}
+		<ul class="thumbnails">
+			{% for item in item_list %}
+				<li class="span3">
+					{% thumbnail item.get_image "800x800" format="PNG" upscale=False as im_big %}
+					<a class="highslide" onclick="return hs.expand(this)" href="{{ im_big.url }}">
+						<div class="thumbnail">
+							{% thumbnail item.get_image "300x300" format="PNG" crop="center" as im %}
+								<img src="{{ im.url }}" alt="{{ item.get_title }}" />
+							{% endthumbnail %}
+						</div>
+					</a>
+					{% endthumbnail %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<h2>Раздел в разработке</h2>
+	{% endif %}
+	
+	{% include "paginate.html" %}
+	
+	<div class="pagination pagination-centered">
+		<ul>
+			<li><a href="/gallery/">К списку альбомов »</a></li>
+		</ul>
+	</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "default.html" %}
+{% load i18n %}
+
+{% block content %}
+	<ul class="nav nav-pills">
+		<li {% ifequal profile_nav 1 %}class="active"{% endifequal %}><a href="/accounts/profile/">Профиль</a></li>
+		
+		<li class="dropdown {% if profile_nav == 2 or profile_nav == 3 %}active{% endif %}">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Форум <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				<li {% ifequal profile_nav 2 %}class="active"{% endifequal %}><a href="/accounts/profile/forum/thread/">Мои темы</a></li>
+				<li {% ifequal profile_nav 3 %}class="active"{% endifequal %}><a href="/accounts/profile/forum/post/">Мои сообщения</a></li>
+			</ul>
+		</li>
+		
+		<li {% if profile_nav == 4 or profile_nav == 5 %}class="active"{% endif %}><a href="{% url user_msg_dialog %}">Личные сообщения</a></li>
+
+	</ul>
+
+	{% block subcontent %}
+		<div class="row">
+			<div class="span6">
+				<h3>Основные данные</h3>
+				{% with form1 as form %}
+					<form class="form-horizontal" method="post" action=""  enctype='multipart/form-data'>{% csrf_token %}
+						{% include "forform.html" %}
+					</form>
+				{% endwith %}
+			</div>
+			
+			<div class="span6">
+				<h3>Сменить пароль</h3>
+				{% with form2 as form %}
+					<form class="form-horizontal" method="post" action="/accounts/change-password/">{% csrf_token %}
+						{% include "forform.html" %}
+					</form>
+				{% endwith %}
+			</div>
+		</div>
+	{% endblock %}
+{% endblock %}

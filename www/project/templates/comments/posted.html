@@ -1,0 +1,13 @@
+{% extends "news/item.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Thanks for commenting" %}.{% endblock %}
+
+{% block content %}
+  <h1>{% trans "Thank you for your comment" %}.</h1>{{ object.id }}
+	<div class="pagination pagination-centered">
+		<ul>
+			<li><a href="/news/">Вернуться к новости »</a></li>
+		</ul>
+	</div>
+{% endblock %}

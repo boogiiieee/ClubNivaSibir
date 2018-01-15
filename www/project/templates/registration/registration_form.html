@@ -1,0 +1,37 @@
+{% extends "default.html" %}
+
+{% block content %}
+	<form class="form-horizontal" action="" method="post">{% csrf_token %}
+		{% if form.errors %}
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Ошибка!</strong> Исправьте ошибки и повторите попытку.
+			</div>
+		{% endif %}
+
+		{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+
+		{% for field in form.visible_fields %}
+			<div class="control-group {% if field.errors %}error{% endif %}">
+				<label class="control-label" for="{{ field.id_for_label }}"><strong>{% if field.field.required %}*{% endif %} {{ field.label }}</strong></label>
+				<div class="controls">
+					{{ field }}
+					{% if field.errors %}<span class="help-inline">{{ field.errors }}</span>{% endif %}
+				</div>
+			</div>
+		{% endfor %}
+		
+		<div class="control-group">
+			<div class="controls">
+				<p><a href="{% url auth_password_reset %}">Забыли логин или пароль?</a></p>
+				<button type="submit" class="btn">Зарегистрироваться</button>
+				<a class="btn btn-primary" href="{% url auth_login %}">У вас уже есть логин и пароль</a>
+			</div>
+		</div>
+	</form>
+	
+	<ul>
+		<li>Все поля, отмеченные символом (*), обязательны для заполнения.</li>
+		<li>Логин должен состоять только из <strong>английских букв</strong>, цифр и знаков - _</li>
+	</ul>
+{% endblock %}

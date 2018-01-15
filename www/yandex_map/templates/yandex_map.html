@@ -1,0 +1,21 @@
+<div id="ymaps-map-id_{{ item.fid }}" style="width:{{ item.width }}px; height:{{ item.height }}px;"></div>
+<script type="text/javascript">
+	function fid_{{ item.fid }}(ymaps) {
+		var map = new ymaps.Map("ymaps-map-id_{{ item.fid }}", {
+			center: [{{ item.map_x }}, {{ item.map_y }}],
+			zoom: {{ item.zoom }},
+			type: "yandex#map"
+		});
+		map.controls
+			.add("zoomControl")
+			.add("mapTools")
+			.add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+		map.geoObjects
+			.add(new ymaps.Placemark(
+				[{{ item.placemark_x }}, {{ item.placemark_y }}], 
+				{ balloonContent:"{{ item.text|safe }}" }, 
+				{ preset:"twirl#lightblueDotIcon" }
+			));
+	};
+</script>
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.0-stable/?lang=ru-RU&coordorder=longlat&load=package.full&wizard=constructor&onload=fid_{{ item.fid }}"></script>

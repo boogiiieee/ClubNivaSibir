@@ -1,0 +1,22 @@
+{% if messages %}
+	{% for message in messages %}	
+		<div class="alert 
+			{% ifequal message.level 10 %}alert-block{% endifequal %}
+			{% ifequal message.level 20 %}alert-info{% endifequal %}
+			{% ifequal message.level 25 %}alert-success{% endifequal %}
+			{% ifequal message.level 30 %}alert-block{% endifequal %}
+			{% ifequal message.level 40 %}alert-error{% endifequal %}
+		">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ message }}
+		</div>
+	{% endfor %}
+{% endif %}
+
+<!--
+	DEBUG = 10
+	INFO = 20
+	SUCCESS = 25
+	WARNING = 30
+	ERROR = 40
+-->

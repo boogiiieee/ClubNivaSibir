@@ -1,0 +1,33 @@
+{% extends "default.html" %}
+{% load thumbnail %}
+
+{% block content %}
+	{% if items_list %}
+		<div class="row">
+			{% for item in items_list %}
+				<div class="span6">
+					<div class="media" style="margin-bottom:20px">
+						<a class="thumbnail pull-left" href="{{ item.get_item_url }}">
+							{% if item.get_image and item.get_image.get_image %}
+								{% thumbnail item.get_image.get_image "300x300" crop="center" as im %}
+									<img class="media-object" src="{{ im.url }}" alt="{{ item.get_title }}">
+								{% endthumbnail %}
+							{% else %}
+								<img class="media-object" src="{{ MEDIA_URL }}img/no_image.png" alt="{{ item.get_title }}">
+							{% endif %}
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="{{ item.get_item_url }}">{{ item.get_title }}</a></h4>
+							<small><strong>{{ item.get_date|date:"d.m.Y" }}</strong></small>
+							<a href="{{ item.get_item_url }}">Подробнее »</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<h2>Раздел в разработке</h2>
+	{% endif %}
+	
+	{% include "paginate.html" %}
+{% endblock %}

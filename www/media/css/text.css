@@ -1,0 +1,8 @@
+.align-left {text-align:left !important; }
+.align-right {text-align:right !important; }
+.align-center {text-align: center !important; }
+.align-justify {text-align:justify !important; }
+ 
+img.align-left, table.align-left {float:left; margin-right:10px;margin-bottom:5px;}
+img.align-right, table.align-right {float:right; margin-left:10px;margin-bottom:5px;}
+img.align-center, table.align-center { display: block; margin-left: auto; margin-right: auto;}

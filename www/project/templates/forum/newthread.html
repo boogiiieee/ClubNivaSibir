@@ -1,0 +1,28 @@
+{% extends "forum_base.html" %}
+{% load i18n %}
+
+{% block title %}Новая тема{% endblock %}
+
+{% block pagetitle %}
+	<div class="row">
+		<div class="span12">
+			<h1>Новая тема</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{% block breadcrumbs %} 
+	<ul class="breadcrumb">
+		<li><a href="{% if flag_partner %}{% url forum_index_partner %}{% else %}{% url forum_index %}{% endif%}">{% if flag_partner %}Форум для партнеров{% else %}Форум{% endif%}</a> <span class="divider">/</span></li>
+		{% for title, url in forum.get_url_name %}
+			<li><a href='{{ url }}'>{{ title }}</a> <span class="divider">/</span></li>
+		{% endfor %}
+		<li class="active">Новая тема</li>
+	</ul>
+{% endblock %}
+
+{% block subcontent %}
+	<form class="form-horizontal" method='post' action='./' enctype='multipart/form-data'>{% csrf_token %}
+		{% include "forform.html" %}
+	</form>
+{% endblock %}

@@ -1,0 +1,46 @@
+<script>
+	$(function(){
+		$('#id_like_{{ ctype }}_{{ object_pk }} a.like_link').click(function(){
+		
+			msg_block = $('#id_like_{{ ctype }}_{{ object_pk }} .like_msg');
+			count_block = $('#id_like_{{ ctype }}_{{ object_pk }} .like_count');
+			
+			$.ajax({
+				type: "GET",
+				url: "{% url add_like_url %}?id={{ obj.id }}&name={{ name }}",
+				success: function(data){
+					if ( data.result == 1 ) {
+						msg_block.html('<div class="alert alert-success">Спасибо! Ваш голос принят.</div>');
+						count_block.text(data.count);
+					}
+					else if ( data.result == 2 ) {
+						msg_block.html('<div class="alert alert-warning">Вы уже голосовали.</div>');
+					}
+					else {
+						msg_block.html('<div class="alert alert-error">Произошла ошибка! Попробуйте снова или обратитесь к администатору.</div>');
+					}
+				},
+				error: function(error) {
+					msg_block.html('<div class="alert alert-error">Произошла ошибка! Попробуйте снова или обратитесь к администатору.</div>');
+				},
+				dataType: "json"
+			});
+			
+			return false;
+		});
+	});
+</script>
+
+<div class="contener">
+	<div id="id_like_{{ ctype }}_{{ object_pk }}" class="like">
+		<div class="like_msg"></div>
+		<div class="row-fluid">
+			<div class="span12">
+				<i class="icon-thumbs-up"></i> <a href="#" class="like_link">Проголосовать</a>
+			</div>
+			<div class="span12">
+				<div class="like_count"><small>Всего голосов:</small> <strong>{{ obj.like_count }}</strong></div>
+			</div>
+		</div>
+	</div>
+</div>
